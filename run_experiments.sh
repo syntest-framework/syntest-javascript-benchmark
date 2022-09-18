@@ -1,5 +1,5 @@
 experiment_name="new"
-time=120
+time=60
 
 incorporate_execution_information=( true false ) # false
 modes=( "none" "ranked" "proportional" ) # none ranked proportional
@@ -79,8 +79,8 @@ func1()
       continue
     fi
     docker rm "${experiment_name}_${incorporate}_${mode}_${i}"
-    docker run --name "${experiment_name}_${incorporate}_${mode}_${i}" --env time_per_target=${time} --env incorporate_execution_information=${incorporate} --env type_inference_mode=${mode} --env target_root_directory="./benchmark/${benchmarks[$x]}" --env include="./benchmark/${benchmark_files[$x]}" syntest/javascript:${experiment_name}
-    docker cp "${experiment_name}_${incorporate}_${mode}_${i}:/app/syntest-javascript/syntest" "./results/${experiment_name}-${time}-${incorporate}-${mode}-${benchmark_name[$x]}-${x}-${i}"
+    docker run --name "${experiment_name}_${incorporate}_${mode}_${i}" --env time_per_target=${time} --env incorporate_execution_information=${incorporate} --env type_inference_mode=${mode} --env target_root_directory="./${benchmarks[$x]}" --env include="./${benchmark_files[$x]}" syntest/javascript:${experiment_name}
+    docker cp "${experiment_name}_${incorporate}_${mode}_${i}:/app/syntest-javascript-benchmark/syntest" "./results/${experiment_name}-${time}-${incorporate}-${mode}-${benchmark_name[$x]}-${x}-${i}"
   done
 }
 
@@ -93,7 +93,7 @@ for incorporate in "${incorporate_execution_information[@]}"; do
       continue
     fi
 
-    for i in {1..20}; do
+    for i in {1..1}; do
       echo "running ${experiment_name} ex=${experiment_name} time=${time} inference=${incorporate} mode=${mode} trial ${i} for ${benchmark_name[$x]} with files ${benchmark_files[$x]}"
       func1 "$incorporate" "$mode" "$i" &> "log/log_${incorporate}_${mode}_${i}" &
    done

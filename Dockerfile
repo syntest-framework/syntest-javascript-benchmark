@@ -16,16 +16,17 @@ RUN npm run build
 WORKDIR /app/syntest-javascript
 COPY ../syntest-javascript .
 RUN npm install
+RUN npm install -g .
 
 WORKDIR /app/syntest-javascript-benchmark
 COPY . .
-WORKDIR /app/syntest-javascript/benchmark/top10npm/express
+WORKDIR /app/syntest-javascript-benchmark/express
 RUN npm install
 WORKDIR /app/syntest-javascript-benchmark
 
 ENTRYPOINT
 ENTRYPOINT [ \
-    "npm", "run", "run-ts", "--", \
+    "syntest-javascript", "--", \
     "--search_time=${time_per_target}", \
     "--incorporate_execution_information=${incorporate_execution_information}", \
     "--type_inference_mode=${type_inference_mode}", \

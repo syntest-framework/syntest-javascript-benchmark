@@ -125,3 +125,5 @@ package-lock.json
 .syntest/
 syntest/
 experiments/results/*
+results/
+log/
