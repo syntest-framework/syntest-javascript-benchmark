@@ -24,12 +24,5 @@ WORKDIR /app/syntest-javascript-benchmark/express
 RUN npm install
 WORKDIR /app/syntest-javascript-benchmark
 
-ENTRYPOINT
-ENTRYPOINT [ \
-    "syntest-javascript", "--", \
-    "--search_time=${time_per_target}", \
-    "--incorporate_execution_information=${incorporate_execution_information}", \
-    "--type_inference_mode=${type_inference_mode}", \
-    "--target_root_directory=${target_root_directory}", \
-    "--include=${include}" \
-    ]
+ENTRYPOINT syntest-javascript --search_time=${time_per_target} --incorporate_execution_information=${incorporate_execution_information} --type_inference_mode=${type_inference_mode} --target_root_directory=${target_root_directory} --include=${include}
+
