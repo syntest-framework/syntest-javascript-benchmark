@@ -1,0 +1,30 @@
+{
+  "name": "syntest-javascript-benchmark",
+  "version": "0.0.1",
+  "description": "SynTest JavaScript Benchmark is a benchmark for the SynTest JavaScript Tool",
+  "keywords": [
+    "syntest",
+    "automatic-test-generation"
+  ],
+  "homepage": "https://www.syntest.org",
+  "bugs": {
+    "url": "https://github.com/syntest-framework/syntest-javascript-benchmark/issues"
+  },
+  "license": "Apache-2.0",
+  "contributors": [
+    "Annibale Panichella",
+    "Mitchell Olsthoorn",
+    "Dimitri Stallenberg"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syntest-framework/syntest-javascript-benchmark.git"
+  },
+  "dependencies": {
+    "chai": "^4.3.6",
+    "chai-as-promised": "^7.1.1"
+  }
+}

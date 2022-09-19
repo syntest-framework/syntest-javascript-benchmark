@@ -2,3 +2,4 @@
 ./.syntest/
 ./syntest/
 ./log/
+./node_modules

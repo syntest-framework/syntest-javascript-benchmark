@@ -10,7 +10,7 @@ module.exports = {
     explore_illegal_values: false,
 
     algorithm: "DynaMOSA",
-    search_time: 60,
+    search_time: 5,
     total_time: 60000,
     iteration_budget: 1000000,
 
@@ -46,7 +46,7 @@ module.exports = {
         // "./axios/lib/core/buildFullPath.js",
         // "./axios/lib/core/Axios.js",
 
-        // "./commanderjs/lib/help.js",
+        "./commanderjs/lib/help.js",
 
         // "./lodash/.internal/equalArrays.js",
         // "./lodash/hasPath.js",
@@ -63,7 +63,7 @@ module.exports = {
         // "./express/lib/view.js",
 
         // "./axios/lib/core/*.js",
-        "./commanderjs/lib/**/*.js",
+        // "./commanderjs/lib/**/*.js",
 
         // "./express/lib/**/*.js",
         // "./lodash/**/*.js",
