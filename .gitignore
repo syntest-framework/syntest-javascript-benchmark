@@ -126,3 +126,6 @@ syntest/
 experiments/results/*
 results/
 log/
+
+!lib/
+!test/
