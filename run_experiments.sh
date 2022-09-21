@@ -1,5 +1,5 @@
 experiment_name="new"
-time=60
+time=120
 
 incorporate_execution_information=( true false ) # false
 modes=( "none" "ranked" "proportional" ) # none ranked proportional
@@ -93,7 +93,7 @@ for incorporate in "${incorporate_execution_information[@]}"; do
       continue
     fi
 
-    for i in {1..1}; do
+    for i in {1..10}; do
       echo "running ${experiment_name} ex=${experiment_name} time=${time} inference=${incorporate} mode=${mode} trial ${i} for ${benchmark_name[$x]} with files ${benchmark_files[$x]}"
       func1 "$incorporate" "$mode" "$i" &> "log/log_${incorporate}_${mode}_${i}" &
    done
