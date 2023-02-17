@@ -17,6 +17,7 @@
     "Dimitri Stallenberg"
   ],
   "scripts": {
+    "standalone": "syntest-javascript",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +25,7 @@
     "url": "git+https://github.com/syntest-framework/syntest-javascript-benchmark.git"
   },
   "dependencies": {
+    "@syntest/javascript": "file:../syntest-javascript",
     "chai": "4.3.6",
     "chai-as-promised": "7.1.1"
   }

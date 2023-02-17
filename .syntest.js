@@ -1,48 +1,46 @@
 module.exports = {
     // seed: 'test',
-    population_size: 50,
-    max_depth: 5,
+    "population-size": 50,
+    "max-depth": 5,
 
     // mutation chances
-    resample_gene_probability: 0.01,
-    delta_mutation_probability: 0.8,
-    sample_func_as_arg: 0.5,
-    explore_illegal_values: false,
+    "resample-gene-probability": 0.01,
+    "delta-mutation-probability": 0.8,
+    "sample-func-as-arg": 0.5,
+    "explore-illegal-values": false,
 
-    algorithm: "DynaMOSA",
-    search_time: 5,
-    total_time: 60000,
-    iteration_budget: 1000000,
+    "algorithm": "DynaMOSA",
+    "search-time-budget": 30,
+    "total-time-budget": 30,
+    "iteration-budget": 1000000,
 
-    probe_objective: true,
-    modifier_extraction: true,
-    constant_pool: true,
-    constant_pool_probability: 0.5,
+    "constant-pool": true,
+    "constant-pool-probability": 0.5,
 
     // logging
-    console_log_level: "info",
-    log_to_file: ["info", "warn", "error"],
+    "console-log-level": "info",
+    "log-to-file": ["info", "warn", "error"],
 
-    incorporate_execution_information: true,
-    type_inference_mode: 'proportional', // none proportional ranked
-    random_type_probability: 0.1,
+    "incorporate-execution-information": true,
+    "type-inference-mode": 'proportional', // none proportional ranked
+    "random-type-probability": 0.1,
 
-    draw_cfg: false,
+    "draw-cfg": false,
+    "target-root-directory": "./commanderjs",
 
+    // target-root-directory: "./axios",
+    "target-root-directory": "./commanderjs",
+    // target-root-directory: "./express",
+    // target-root-directory: "./lodash",
+    // target-root-directory: "./moment/src",
 
-    // target_root_directory: "./axios",
-    target_root_directory: "./commanderjs",
-    // target_root_directory: "./express",
-    // target_root_directory: "./lodash",
-    // target_root_directory: "./moment/src",
+    // target-root-directory: "./javascript-algorithms",
 
-    // target_root_directory: "./javascript-algorithms",
+    // target-root-directory: "./chalk",
+    // target-root-directory: "./jquery",
+    // target-root-directory: "./npm-cli",
 
-    // target_root_directory: "./chalk",
-    // target_root_directory: "./jquery",
-    // target_root_directory: "./npm_cli",
-
-    include: [
+    "include": [
         // "./axios/lib/core/buildFullPath.js",
         // "./axios/lib/core/Axios.js",
 
@@ -85,7 +83,7 @@ module.exports = {
 
 
     ],
-    exclude: [
+    "exclude": [
         './lodash/test/.internal/*.js',
         './lodash/test/**/*.js',
 
