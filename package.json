@@ -25,7 +25,7 @@
     "url": "git+https://github.com/syntest-framework/syntest-javascript-benchmark.git"
   },
   "dependencies": {
-    "@syntest/javascript": "file:../syntest-javascript",
+    "@syntest/javascript": "^0.0.2-beta.0",
     "chai": "4.3.6",
     "chai-as-promised": "7.1.1"
   }
