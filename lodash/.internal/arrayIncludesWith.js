@@ -21,3 +21,5 @@ function arrayIncludesWith(array, target, comparator) {
 }
 
 export default arrayIncludesWith
+
+const a = [,2]

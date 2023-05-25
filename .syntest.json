@@ -1,0 +1,29 @@
+{
+  "target-root-directory": "./commanderjs",
+  "include": [
+    "./commanderjs/lib/suggestSimilar.js"
+  ],
+  "exclude": [],
+  "crossover": "javascript-tree",
+  "sampler": "javascript-random",
+  "termination-triggers": [
+    "signal"
+  ],
+  "config": ".syntest.json",
+  "preset": "DynaMOSA",
+  "modules": [
+    "@syntest/javascript",
+    "@syntest/plugin-core-event-listener-graphing",
+    "@syntest/plugin-core-metric-middleware-file-writer"
+  ],
+  "console-log-level": "error",
+  "file-log-level": [
+    "info",
+    "warn",
+    "error",
+    "debug"
+  ],
+  "metric-middleware-pipeline": ["metric-middleware-file-writer"],
+  "output-metrics": ["*"],
+  "search-time": 60
+}
