@@ -16,10 +16,6 @@
     "Mitchell Olsthoorn",
     "Dimitri Stallenberg"
   ],
-  "scripts": {
-    "standalone": "syntest-javascript",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/syntest-framework/syntest-javascript-benchmark.git"
