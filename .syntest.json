@@ -25,5 +25,5 @@
   ],
   "metric-middleware-pipeline": ["metric-middleware-file-writer"],
   "output-metrics": ["*"],
-  "search-time": 60
+  "total-time": 180
 }
