@@ -1,7 +1,7 @@
 {
-  "target-root-directory": "./commanderjs",
+  "target-root-directory": "./benchmark/commanderjs",
   "include": [
-    "./commanderjs/lib/suggestSimilar.js"
+    "./benchmark/commanderjs/lib/suggestSimilar.js"
   ],
   "exclude": [],
   "crossover": "javascript-tree",
