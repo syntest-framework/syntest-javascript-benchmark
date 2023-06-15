@@ -23,9 +23,6 @@
   "dependencies": {
     "@syntest/cli": "file:../syntest-core/tools/cli",
     "@syntest/javascript": "file:../syntest-javascript/tools/javascript",
-    "@syntest/plugin-core-event-listener-graphing": "file:../syntest-core/plugins/plugin-core-event-listener-graphing",
-    "@syntest/plugin-core-event-listener-state-storage": "file:../syntest-core/plugins/plugin-core-event-listener-state-storage",
-    "@syntest/plugin-core-event-listener-websocket": "file:../syntest-core/plugins/plugin-core-event-listener-websocket",
     "@syntest/plugin-core-metric-middleware-file-writer": "file:../syntest-core/plugins/plugin-core-metric-middleware-file-writer",
     "chai": "4.3.6",
     "chai-as-promised": "7.1.1"

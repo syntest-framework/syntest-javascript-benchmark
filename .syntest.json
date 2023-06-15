@@ -1,7 +1,7 @@
 {
   "target-root-directory": "./benchmark/commanderjs",
   "include": [
-    "./benchmark/commanderjs/help.js"
+    "./benchmark/commanderjs/lib/help.js"
   ],
   "crossover": "javascript-tree",
   "sampler": "javascript-random",
@@ -10,9 +10,6 @@
   "preset": "NSGAII",
   "modules": [
     "@syntest/javascript",
-    "@syntest/plugin-core-event-listener-graphing",
-    "@syntest/plugin-core-event-listener-state-storage",
-    "@syntest/plugin-core-event-listener-websocket",
     "@syntest/plugin-core-metric-middleware-file-writer"
   ],
   "console-log-level": "info",
