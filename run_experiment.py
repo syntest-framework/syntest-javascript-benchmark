@@ -81,21 +81,24 @@ presets = [
     
 configurations = []
     
+index = 1
 for preset in presets:
     for project, files in projects.items():
         for filepath in files:
-            configurations.append((preset, project, filepath))
+            name = "syntest-{}".format(index)
+            configurations.append((name, preset, project, filepath))
+            index = index + 1
 
 def call_script(args):
-    (preset, project, filepath) = args
-    command = "echo 'docker run --it -e target_root_directory={} -e include={} -e preset={} syntest-brp-2023-base'".format(project, filepath, preset)
-    print("Starting command with configuration: {} {} {}".format(preset, project, filepath))
+    (name, preset, project, filepath) = args
+    command = "docker run -it --name {} -e target_root_directory={} -e include={} -e preset={} syntest-brp-2023-base".format(name, project, filepath, preset)
+    print("Starting command with configuration: {} {} {} {}".format(name, preset, project, filepath))
     result = subprocess.call(command, shell=True)
-    print("Completed command with configuration: {} {} {}".format(preset, project, filepath))
+    print("Completed command with configuration: {} {} {} {}".format(name, preset, project, filepath))
     return result
 
 with Pool(5) as p:
     exit_codes = p.map(call_script, configurations)
     print("Exit codes : {}".format(exit_codes))
     
-#subprocess.check_output(['docker', 'run', '-d', '-v', "${PWD}/experiment/runs/" + runs_directories[i] + ':/app/syntest-solidity-benchmark', '-v', '${PWD}/node_modules:/app/syntest-solidity-benchmark/node_modules', 'syntest:experiment'])
+#subprocess.check_output(['docker', 'run', '-d', '-v', "${PWD}/experiment/runs/" + runs_directories[i] + ':/app/syntest-solidity-benchmark', '-v', '${PWD}/node_modules:/app/syntest-solidity-benchmark/node_modu
