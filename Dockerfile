@@ -32,5 +32,5 @@ RUN npm install
 
 WORKDIR /app/syntest-javascript-benchmark
 
-ENTRYPOINT npx syntest javascript test --target-root-directory=${target_root_directory} --include=${include}
+CMD npx syntest javascript test --target-root-directory=${target_root_directory} --include=${include}
 
