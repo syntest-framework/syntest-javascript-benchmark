@@ -10,7 +10,7 @@ projects = {
         "./benchmark/commanderjs/lib/suggestSimilar.js"
         ],
     "./benchmark/express": [
-        "./benchmark/express/lib/help.js",
+        "./benchmark/express/lib/application.js",
         "./benchmark/express/lib/middleware/query.js",
         "./benchmark/express/lib/request.js",
         "./benchmark/express/lib/response.js",
@@ -18,12 +18,13 @@ projects = {
         "./benchmark/express/lib/view.js"
         ],
     "./benchmark/javascript-algorithms": [
-        "./benchmark/javascript-algorithms/src/algorithms/graph/articulation-points/articulation-points.js",
+        "./benchmark/javascript-algorithms/src/algorithms/graph/articulation-points/articulationPoints.js",
         "./benchmark/javascript-algorithms/src/algorithms/graph/bellman-ford/bellmanFord.js",
         "./benchmark/javascript-algorithms/src/algorithms/graph/travelling-salesman/bfTravellingSalesman.js",
         "./benchmark/javascript-algorithms/src/algorithms/graph/breadth-first-search/breadthFirstSearch.js",
         "./benchmark/javascript-algorithms/src/algorithms/graph/depth-first-search/depthFirstSearch.js",
         "./benchmark/javascript-algorithms/src/algorithms/graph/detect-cycle/detectDirectedCycle.js",
+        "./benchmark/javascript-algorithms/src/algorithms/graph/detect-cycle/detectUndirectedCycle.js",
         "./benchmark/javascript-algorithms/src/algorithms/graph/dijkstra/dijktra.js",
         "./benchmark/javascript-algorithms/src/algorithms/graph/eulerian-path/eulerianPath.js",
         "./benchmark/javascript-algorithms/src/algorithms/graph/floyd-warshall/floydWarshall.js",
@@ -34,7 +35,7 @@ projects = {
         "./benchmark/javascript-algorithms/src/algorithms/sets/knapsack-problem/Knapsack.js",
         "./benchmark/javascript-algorithms/src/algorithms/sets/knapsack-problem/KnapsackItem.js",
         "./benchmark/javascript-algorithms/src/algorithms/math/matrix/Matrix.js",
-        "./benchmark/javascript-algorithms/src/algorithms/sorting/counting-sort/countingSort.js",
+        "./benchmark/javascript-algorithms/src/algorithms/sorting/counting-sort/CountingSort.js",
         "./benchmark/javascript-algorithms/src/data-structures/tree/red-black-tree/RedBlackTree.js"
         ],
     "./benchmark/lodash": [
@@ -50,13 +51,13 @@ projects = {
         "./benchmark/lodash/unzip.js"
         ],
     "./benchmark/moment": [
-        "./benchmark/moment/src/lib/duration/add-subtract.js",
+        "./benchmark/moment/src/lib/moment/add-subtract.js",
         "./benchmark/moment/src/lib/moment/calendar.js",
         "./benchmark/moment/src/lib/create/check-overflow.js",
         "./benchmark/moment/src/lib/moment/compare.js",
         "./benchmark/moment/src/lib/moment/constructor.js",
         "./benchmark/moment/src/lib/create/date-from-array.js",
-        "./benchmark/moment/src/lib/format/format.js",
+        "./benchmark/moment/src/lib/moment/format.js",
         "./benchmark/moment/src/lib/create/from-anything.js",
         "./benchmark/moment/src/lib/create/from-array.js",
         "./benchmark/moment/src/lib/create/from-object.js",
@@ -64,7 +65,7 @@ projects = {
         "./benchmark/moment/src/lib/create/from-string-and-format.js",
         "./benchmark/moment/src/lib/create/from-string.js",
         "./benchmark/moment/src/lib/moment/get-set.js",
-        "./benchmark/moment/src/lib/locale/locale.js",
+        "./benchmark/moment/src/lib/create/locale.js",
         "./benchmark/moment/src/lib/moment/min-max.js",
         "./benchmark/moment/src/lib/moment/now.js",
         "./benchmark/moment/src/lib/create/parsing-flags.js",
