@@ -29,7 +29,7 @@ COPY .syntest.json .
 RUN npm install
 
 # Install benchmark dependencies
-WORKDIR /app/syntest-javascript-benchmark/express
+WORKDIR /app/syntest-javascript-benchmark/benchmark/express
 RUN npm install
 
 WORKDIR /app/syntest-javascript-benchmark

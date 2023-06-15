@@ -1,15 +1,18 @@
 {
   "target-root-directory": "./benchmark/commanderjs",
   "include": [
-    "./benchmark/commanderjs/lib/suggestSimilar.js"
+    "./benchmark/commanderjs/help.js"
   ],
   "crossover": "javascript-tree",
   "sampler": "javascript-random",
   "termination-triggers": [
   ],
-  "preset": "DynaMOSA",
+  "preset": "NSGAII",
   "modules": [
     "@syntest/javascript",
+    "@syntest/plugin-core-event-listener-graphing",
+    "@syntest/plugin-core-event-listener-state-storage",
+    "@syntest/plugin-core-event-listener-websocket",
     "@syntest/plugin-core-metric-middleware-file-writer"
   ],
   "console-log-level": "info",
@@ -21,5 +24,5 @@
   ],
   "metric-middleware-pipeline": ["metric-middleware-file-writer"],
   "output-metrics": ["*"],
-  "total-time": 180
+  "total-time": 60
 }
