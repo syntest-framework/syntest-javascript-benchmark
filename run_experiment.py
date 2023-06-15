@@ -83,19 +83,20 @@ presets = [
 configurations = []
     
 index = 1
-for preset in presets:
-    for project, files in projects.items():
-        for filepath in files:
-            name = "syntest-{}".format(index)
-            configurations.append((name, preset, project, filepath))
-            index = index + 1
+for iteration in range(10):
+    for preset in presets:
+        for project, files in projects.items():
+            for filepath in files:
+                name = "syntest-{}".format(index)
+                configurations.append((name, iteration, preset, project, filepath))
+                index = index + 1
 
 def call_script(args):
-    (name, preset, project, filepath) = args
-    command = "timeout -k 5m 5m  docker run -it --name {} -e target_root_directory={} -e include={} -e preset={} syntest-brp-2023-base".format(name, project, filepath, preset)
-    print("Starting command with configuration: {} {} {} {}".format(name, preset, project, filepath))
+    (name, iteration, preset, project, filepath) = args
+    command = "docker run -it --name {} -e target_root_directory={} -e include={} -e preset={} syntest-brp-2023-base".format(name, project, filepath, preset)
+    print("Starting command with configuration: {} {} {} {} {}".format(name, iteration, preset, project, filepath))
     result = subprocess.call(command, shell=True)
-    print("Completed command with configuration: {} {} {} {}".format(name, preset, project, filepath))
+    print("Completed command with configuration: {} {} {} {} {}".format(name, iteration, preset, project, filepath))
     return result
 
 with Pool(5) as p:
