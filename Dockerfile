@@ -3,6 +3,7 @@ FROM node:lts
 # set environment variables for run time
 ENV target_root_directory=
 ENV include=
+ENV preset=
 
 # clone the repos
 WORKDIR /app/
@@ -33,5 +34,4 @@ RUN npm install
 
 WORKDIR /app/syntest-javascript-benchmark
 
-CMD npx syntest javascript test --target-root-directory=${target_root_directory} --include=${include}
-
+CMD npx syntest javascript test --target-root-directory=${target_root_directory} --include=${include} --preset=${preset}
