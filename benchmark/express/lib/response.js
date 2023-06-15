@@ -1136,7 +1136,7 @@ function stringify (value, replacer, spaces, escape) {
           return '\\u003e'
         case 0x26:
           return '\\u0026'
-        /* istanbul ignore next: unreachable default */
+
         default:
           return c
       }

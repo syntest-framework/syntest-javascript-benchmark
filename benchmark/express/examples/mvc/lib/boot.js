@@ -57,7 +57,7 @@ module.exports = function(parent, options){
           url = '/';
           break;
         default:
-          /* istanbul ignore next */
+
           throw new Error('unrecognized route: ' + name + '.' + key);
       }
 

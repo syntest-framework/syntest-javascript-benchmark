@@ -81,7 +81,7 @@ app.delete('/user/:id', loadUser, andRestrictTo('admin'), function(req, res){
   res.send('Deleted user ' + req.user.name);
 });
 
-/* istanbul ignore next */
+
 if (!module.parent) {
   app.listen(3000);
   console.log('Express started on port 3000');

@@ -276,7 +276,7 @@ export default class Heap {
    * @param {*} secondElement
    * @return {boolean}
    */
-  /* istanbul ignore next */
+  
   pairIsInCorrectOrder(firstElement, secondElement) {
     throw new Error(`
       You have to implement heap pair comparision method

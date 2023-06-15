@@ -19,7 +19,7 @@ function count(req, res) {
   res.send('viewed ' + req.session.count + ' times\n')
 }
 
-/* istanbul ignore next */
+
 if (!module.parent) {
   app.listen(3000);
   console.log('Express started on port 3000');

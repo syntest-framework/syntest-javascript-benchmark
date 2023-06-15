@@ -108,7 +108,7 @@ app.use(function(req, res){
   res.send({ error: "Sorry, can't find that" })
 });
 
-/* istanbul ignore next */
+
 if (!module.parent) {
   app.listen(3000);
   console.log('Express started on port 3000');

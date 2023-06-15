@@ -53,7 +53,7 @@ app.get('/client.js', function(req, res){
   res.sendFile(path.join(__dirname, 'client.js'));
 });
 
-/* istanbul ignore next */
+
 if (!module.parent) {
   app.listen(3000);
   console.log('Express started on port 3000');
