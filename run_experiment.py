@@ -92,7 +92,7 @@ for preset in presets:
 
 def call_script(args):
     (name, preset, project, filepath) = args
-    command = "docker run -it --name {} -e target_root_directory={} -e include={} -e preset={} syntest-brp-2023-base".format(name, project, filepath, preset)
+    command = "timeout -k 5m 5m  docker run -it --name {} -e target_root_directory={} -e include={} -e preset={} syntest-brp-2023-base".format(name, project, filepath, preset)
     print("Starting command with configuration: {} {} {} {}".format(name, preset, project, filepath))
     result = subprocess.call(command, shell=True)
     print("Completed command with configuration: {} {} {} {}".format(name, preset, project, filepath))
