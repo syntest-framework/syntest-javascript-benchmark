@@ -24,6 +24,7 @@ RUN npm run build
 
 # Install benchmark
 WORKDIR /app/syntest-javascript-benchmark
+COPY .syntest.json .
 RUN npm install
 
 # Install benchmark dependencies
