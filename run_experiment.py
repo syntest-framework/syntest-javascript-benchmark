@@ -1,7 +1,10 @@
 import subprocess
 import os
+import sys
 
 from multiprocessing.dummy import Pool
+
+config = sys.argv[1]
 
 projects = {
     "./benchmark/commanderjs": [
@@ -87,13 +90,13 @@ for iteration in range(10):
     for preset in presets:
         for project, files in projects.items():
             for filepath in files:
-                name = "syntest-{}".format(index)
+                name = "syntest-{}-{}".format(config, index)
                 configurations.append((name, iteration, preset, project, filepath))
                 index = index + 1
 
 def call_script(args):
     (name, iteration, preset, project, filepath) = args
-    command = "docker run -it --name {} -e target_root_directory={} -e include={} -e preset={} syntest-brp-2023-base".format(name, project, filepath, preset)
+    command = "docker run -it --name {} -e target_root_directory={} -e include={} -e preset={} syntest-brp-2023-{}".format(name, project, filepath, preset, config)
     print("Starting command with configuration: {} {} {} {} {}".format(name, iteration, preset, project, filepath))
     result = subprocess.call(command, shell=True)
     print("Completed command with configuration: {} {} {} {} {}".format(name, iteration, preset, project, filepath))
