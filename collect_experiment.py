@@ -29,8 +29,8 @@ for i in range(1, runs + 1):
                     project_properties.append(text_file.read().splitlines()[0])
                 project_properties.append(text_file.read().splitlines()[1])
     except:
-         os.mkdir("{}/{}".format(config, name))
-         with open("{}/{}/logs.txt".format(config, name), "w") as text_file:
+        os.mkdir("{}/{}".format(config, name))
+        with open("{}/{}/logs.txt".format(config, name), "w") as text_file:
             text_file.write(logs)
 
 with open("{}/properties.csv".format(config), "w") as text_file:
