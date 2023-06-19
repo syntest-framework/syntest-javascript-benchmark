@@ -5,8 +5,8 @@ import sys
 from multiprocessing.dummy import Pool
 
 config = sys.argv[1]
-iterations = sys.argv[2]
-parallel = sys.argv[3]
+iterations = int(sys.argv[2])
+parallel = int(sys.argv[3])
 
 projects = {
     "./benchmark/commanderjs": [

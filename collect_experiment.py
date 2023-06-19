@@ -3,8 +3,8 @@ import os
 import sys
 
 config = sys.argv[1]
-iterations = sys.argv[2]
-configurations = sys.argv[3]
+iterations = int(sys.argv[2])
+configurations = int(sys.argv[3])
 
 runs = 37 * iterations * configurations
 
