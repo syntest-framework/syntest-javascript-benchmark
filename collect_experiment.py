@@ -27,9 +27,16 @@ for i in range(1, runs + 1):
         properties_file_path = "{}/{}/{}/metrics/properties.csv".format(config, name, fid)
         if os.path.isfile(properties_file_path):
             with open(properties_file_path, "r") as text_file:
+                lines = text_file.read().splitlines()
+
+                if len(lines) < 2:
+                    print(f'empty file: {properties_file_path}')
+                    break
+
                 if len(project_properties) == 0:
-                    project_properties.append(text_file.read().splitlines()[0])
-                project_properties.append(text_file.read().splitlines()[1])
+                    project_properties.append(lines[0])
+
+                project_properties.append(lines[1])
     except:
         os.mkdir("{}/{}".format(config, name))
         with open("{}/{}/logs.txt".format(config, name), "w") as text_file:
