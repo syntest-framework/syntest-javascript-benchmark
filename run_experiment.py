@@ -30,7 +30,7 @@ projects = {
         "./benchmark/javascript-algorithms/src/algorithms/graph/depth-first-search/depthFirstSearch.js",
         "./benchmark/javascript-algorithms/src/algorithms/graph/detect-cycle/detectDirectedCycle.js",
         "./benchmark/javascript-algorithms/src/algorithms/graph/detect-cycle/detectUndirectedCycle.js",
-        "./benchmark/javascript-algorithms/src/algorithms/graph/dijkstra/dijktra.js",
+        # "./benchmark/javascript-algorithms/src/algorithms/graph/dijkstra/dijktra.js",
         "./benchmark/javascript-algorithms/src/algorithms/graph/eulerian-path/eulerianPath.js",
         "./benchmark/javascript-algorithms/src/algorithms/graph/floyd-warshall/floydWarshall.js",
         "./benchmark/javascript-algorithms/src/algorithms/graph/hamiltonian-cycle/hamiltonianCycle.js",
