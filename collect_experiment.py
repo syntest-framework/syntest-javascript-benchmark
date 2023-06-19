@@ -3,8 +3,10 @@ import os
 import sys
 
 config = sys.argv[1]
+iterations = sys.argv[2]
+configurations = sys.argv[3]
 
-runs = 37 * 10 * 2
+runs = 37 * iterations * configurations
 
 os.mkdir(config)
 

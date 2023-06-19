@@ -5,6 +5,8 @@ import sys
 from multiprocessing.dummy import Pool
 
 config = sys.argv[1]
+iterations = sys.argv[2]
+parallel = sys.argv[3]
 
 projects = {
     "./benchmark/commanderjs": [
@@ -86,7 +88,7 @@ presets = [
 configurations = []
     
 index = 1
-for iteration in range(10):
+for iteration in range(iterations):
     for preset in presets:
         for project, files in projects.items():
             for filepath in files:
@@ -102,7 +104,7 @@ def call_script(args):
     print("Completed command with configuration: {} {} {} {} {}".format(name, iteration, preset, project, filepath))
     return result
 
-with Pool(5) as p:
+with Pool(parallel) as p:
     exit_codes = p.map(call_script, configurations)
     print("Exit codes : {}".format(exit_codes))
     
