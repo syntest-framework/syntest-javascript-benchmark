@@ -47,7 +47,7 @@ projects = {
         "./benchmark/lodash/.internal/equalArrays.js",
         "./benchmark/lodash/hasPath.js",
         "./benchmark/lodash/random.js",
-        "./benchmark/lodash/results.js",
+        "./benchmark/lodash/result.js",
         "./benchmark/lodash/slice.js",
         "./benchmark/lodash/split.js",
         "./benchmark/lodash/toNumber.js",
