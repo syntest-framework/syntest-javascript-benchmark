@@ -1,16 +1,20 @@
 {
-  "target-root-directory": "./benchmark/commanderjs",
+  "target-root-directory": "./benchmark/express",
   "include": [
-    "./benchmark/commanderjs/lib/help.js"
+    "./benchmark/express/lib/response.js"
   ],
   "crossover": "javascript-tree",
   "sampler": "javascript-random",
   "termination-triggers": [
   ],
-  "preset": "NSGAII",
+  "preset": "DynaMOSA",
+  "resample-gene-probability": 0.1,
+  "string-alphabet": "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ !@#$%^&*()-_=+[]{};:|,./<>?~§±`'",
   "modules": [
     "@syntest/javascript",
-    "@syntest/plugin-core-metric-middleware-file-writer"
+    "@syntest/plugin-core-metric-middleware-file-writer",
+    "@syntest/plugin-core-event-listener-graphing",
+    "@syntest/plugin-core-event-listener-state-storage"
   ],
   "console-log-level": "info",
   "file-log-level": [
@@ -21,5 +25,5 @@
   ],
   "metric-middleware-pipeline": ["metric-middleware-file-writer"],
   "output-metrics": ["*"],
-  "total-time": 60
+  "total-time": 120
 }
