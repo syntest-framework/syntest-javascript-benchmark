@@ -1,7 +1,7 @@
 {
-  "target-root-directory": "./benchmark/express",
+  "target-root-directory": "./benchmark/commanderjs",
   "include": [
-    "./benchmark/express/lib/response.js"
+    "./benchmark/commanderjs/lib/suggestSimilar.js"
   ],
   "crossover": "javascript-tree",
   "sampler": "javascript-random",
@@ -12,9 +12,7 @@
   "string-alphabet": "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ !@#$%^&*()-_=+[]{};:|,./<>?~§±`'",
   "modules": [
     "@syntest/javascript",
-    "@syntest/plugin-core-metric-middleware-file-writer",
-    "@syntest/plugin-core-event-listener-graphing",
-    "@syntest/plugin-core-event-listener-state-storage"
+    "@syntest/plugin-core-metric-middleware-file-writer"
   ],
   "console-log-level": "info",
   "file-log-level": [
