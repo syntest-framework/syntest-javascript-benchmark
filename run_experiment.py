@@ -54,7 +54,13 @@ projects = {
         "./benchmark/lodash/transform.js",
         "./benchmark/lodash/truncate.js",
         "./benchmark/lodash/unzip.js"
-        ]
+        ],
+    "./benchmark/artificial": [
+        "./benchmark/artificial/findSpecificStringProblem.js",
+        "./benchmark/artificial/narrowConditionProblem.js",
+        "./benchmark/artificial/performOperationProblem.js",
+        "./benchmark/artificial/triangleProblem.js",
+        ],
     # "./benchmark/moment": [
     #     "./benchmark/moment/src/lib/moment/add-subtract.js",
     #     "./benchmark/moment/src/lib/moment/calendar.js",
@@ -80,6 +86,7 @@ projects = {
 }
 
 presets = [
+    "random",
     "NSGAII",
     "MOSA",
     "DynaMOSA"
