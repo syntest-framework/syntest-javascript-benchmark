@@ -8,8 +8,7 @@
   "termination-triggers": [
   ],
   "preset": "DynaMOSA",
-  "resample-gene-probability": 0.1,
-  "string-alphabet": "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ !@#$%^&*()-_=+[]{};:|,./<>?~§±`'",
+  "string-alphabet": "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ !@#$%^&*()-_=+[]{};:'\"|\\,.<>/?~§±`'",
   "modules": [
     "@syntest/javascript",
     "@syntest/plugin-core-metric-middleware-file-writer"
