@@ -1,14 +1,15 @@
 {
-  "target-root-directory": "./benchmark/commanderjs",
+  "target-root-directory": "./benchmark/lodash",
   "include": [
-    "./benchmark/commanderjs/lib/suggestSimilar.js"
-  ],
+        "./benchmark/lodash/random.js"
+    ],
   "crossover": "javascript-tree",
   "sampler": "javascript-random",
   "termination-triggers": [
   ],
   "preset": "DynaMOSA",
   "resample-gene-probability": 0.1,
+  "use-mocked-object-probability": 0.1,
   "string-alphabet": "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ !@#$%^&*()-_=+[]{};:|,./<>?~§±`'",
   "modules": [
     "@syntest/javascript",

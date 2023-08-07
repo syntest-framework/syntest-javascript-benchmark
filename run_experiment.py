@@ -61,7 +61,7 @@ projects = {
         "./benchmark/artificial/performOperationProblem.js",
         "./benchmark/artificial/triangleProblem.js",
         ],
-    # "./benchmark/moment": [
+    #   "./benchmark/moment/src": [
     #     "./benchmark/moment/src/lib/moment/add-subtract.js",
     #     "./benchmark/moment/src/lib/moment/calendar.js",
     #     "./benchmark/moment/src/lib/create/check-overflow.js",
@@ -78,8 +78,6 @@ projects = {
     #     "./benchmark/moment/src/lib/moment/get-set.js",
     #     "./benchmark/moment/src/lib/create/locale.js",
     #     "./benchmark/moment/src/lib/moment/min-max.js",
-    #     "./benchmark/moment/src/lib/moment/now.js",
-    #     "./benchmark/moment/src/lib/create/parsing-flags.js",
     #     "./benchmark/moment/src/lib/moment/start-end-of.js",
     #     "./benchmark/moment/src/lib/create/valid.js"
     #     ]
