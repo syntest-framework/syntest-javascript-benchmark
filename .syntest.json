@@ -1,13 +1,17 @@
 {
-  "target-root-directory": "./benchmark/commanderjs",
+  "target-root-directory": "./benchmark/express",
   "include": [
-    "./benchmark/commanderjs/lib/suggestSimilar.js"
-  ],
+    "./benchmark/express/lib/middleware/query.js"
+    ],
   "crossover": "javascript-tree",
   "sampler": "javascript-random",
   "termination-triggers": [
   ],
-  "preset": "DynaMOSA",
+  "preset": "random",
+  "constant-pool-probability": 0.5,
+  "type-pool-probability": 0.5,
+  "statement-pool-probability": 0.9,
+  "delta-mutation-probability": 0.8,
   "string-alphabet": "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ !@#$%^&*()-_=+[]{};:'\"|\\,.<>/?~§±`'",
   "modules": [
     "@syntest/javascript",
@@ -22,5 +26,5 @@
   ],
   "metric-middleware-pipeline": ["metric-middleware-file-writer"],
   "output-metrics": ["*"],
-  "total-time": 120
+  "total-time": 30
 }
