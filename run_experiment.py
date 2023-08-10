@@ -89,7 +89,10 @@ presets = [
     "random",
     "NSGAII",
     "MOSA",
-    "DynaMOSA"
+    "DynaMOSA",
+    "SPEAII",
+    "MOSASPEAII",
+    "DynaMOSASPEAII"
     ]
     
 configurations = []
