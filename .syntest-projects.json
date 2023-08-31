@@ -80,4 +80,112 @@
     "./benchmark/moment/src/lib/moment/start-end-of.js",
     "./benchmark/moment/src/lib/create/valid.js"
   ],
+
+  "target-root-directory": "./experimental-benchmark/voca",
+  "include": [
+    "./experimental-benchmark/voca/src/strip/strip_tags.js",
+    "./experimental-benchmark/voca/src/helper/format/replacement/compute.js",
+    "./experimental-benchmark/voca/src/manipulate/tr.js",
+    "./experimental-benchmark/voca/src/helper/format/type_format/float.js",
+    "./experimental-benchmark/voca/src/manipulate/replace_all.js",
+    "./experimental-benchmark/voca/src/manipulate/word_wrap.js",
+    "./experimental-benchmark/voca/src/helper/strip/parse_tag_name.js",
+    "./experimental-benchmark/voca/src/helper/format/type_format/integer_base.js",
+    "./experimental-benchmark/voca/src/chop/code_point_at.js",
+    "./experimental-benchmark/voca/src/helper/object/get_global.js",
+    "./experimental-benchmark/voca/src/manipulate/trim_left.js",
+    "./experimental-benchmark/voca/src/manipulate/trim_right.js",
+    "./experimental-benchmark/voca/src/case/title_case.js",
+    "./experimental-benchmark/voca/src/chop/prune.js",
+    "./experimental-benchmark/voca/src/count/count_substrings.js",
+    "./experimental-benchmark/voca/src/manipulate/repeat.js",
+    "./experimental-benchmark/voca/src/manipulate/splice.js",
+    "./experimental-benchmark/voca/src/query/ends_with.js",
+    "./experimental-benchmark/voca/src/query/is_numeric.js",
+    "./experimental-benchmark/voca/src/chain/wrapper.js",
+    "./experimental-benchmark/voca/src/count/count_where.js",
+    "./experimental-benchmark/voca/src/helper/format/align_and_pad.js",
+    "./experimental-benchmark/voca/src/helper/format/replacement/validate.js",
+    "./experimental-benchmark/voca/src/helper/string/diacritics_map.js",
+    "./experimental-benchmark/voca/src/index/search.js",
+    "./experimental-benchmark/voca/src/manipulate/insert.js",
+    "./experimental-benchmark/voca/src/manipulate/trim.js",
+    "./experimental-benchmark/voca/src/query/includes.js",
+    "./experimental-benchmark/voca/src/query/starts_with.js",
+    "./experimental-benchmark/voca/src/split/words.js",
+    "./experimental-benchmark/voca/src/case/camel_case.js",
+    "./experimental-benchmark/voca/src/case/capitalize.js",
+    "./experimental-benchmark/voca/src/chop/first.js",
+    "./experimental-benchmark/voca/src/chop/grapheme_at.js",
+    "./experimental-benchmark/voca/src/chop/last.js",
+    "./experimental-benchmark/voca/src/chop/truncate.js",
+    "./experimental-benchmark/voca/src/helper/format/conversion_specification.js",
+    "./experimental-benchmark/voca/src/helper/format/replacement/index.js",
+    "./experimental-benchmark/voca/src/helper/format/type_format/add_sign_to_formatted_number.js",
+    "./experimental-benchmark/voca/src/helper/format/type_format/string.js",
+    "./experimental-benchmark/voca/src/helper/number/clip_number.js",
+    "./experimental-benchmark/voca/src/helper/number/coerce_to_number.js",
+    "./experimental-benchmark/voca/src/helper/number/to_integer.js",
+    "./experimental-benchmark/voca/src/helper/string/coerce_to_string.js",
+    "./experimental-benchmark/voca/src/helper/string/surrogate_pair.js",
+    "./experimental-benchmark/voca/src/helper/string/unicode_size.js",
+    "./experimental-benchmark/voca/src/helper/string/to_string.js",
+    "./experimental-benchmark/voca/src/manipulate/pad.js",
+    "./experimental-benchmark/voca/src/manipulate/pad_left.js",
+    "./experimental-benchmark/voca/src/manipulate/pad_right.js",
+    "./experimental-benchmark/voca/src/query/matches.js",
+    "./experimental-benchmark/voca/src/split/code_points.js",
+    "./experimental-benchmark/voca/src/strip/strip_bom.js"
+  ],
+
+  "target-root-directory": "./experimental-benchmark/accounting.js/",
+  "include": [
+    "./experimental-benchmark/accounting.js/accounting.js"
+  ],
+
+  "target-root-directory": "./experimental-benchmark/array/",
+  "include": [
+    "./experimental-benchmark/array/lib/array.js",
+    "./experimental-benchmark/array/lib/enumerable.js"
+  ],
+
+  "target-root-directory": "./experimental-benchmark/arraygeous",
+  "include": [
+    "./experimental-benchmark/arraygeous/src/sort.js",
+    "./experimental-benchmark/arraygeous/src/cor.js",
+    "./experimental-benchmark/arraygeous/src/mode.js",
+    "./experimental-benchmark/arraygeous/src/closest.js",
+    "./experimental-benchmark/arraygeous/src/extent.js",
+    "./experimental-benchmark/arraygeous/src/cumsum.js",
+    "./experimental-benchmark/arraygeous/src/deviation.js",
+    "./experimental-benchmark/arraygeous/src/max.js",
+    "./experimental-benchmark/arraygeous/src/maxIndex.js",
+    "./experimental-benchmark/arraygeous/src/min.js",
+    "./experimental-benchmark/arraygeous/src/minIndex.js",
+    "./experimental-benchmark/arraygeous/src/variance.js",
+    "./experimental-benchmark/arraygeous/src/mean.js",
+    "./experimental-benchmark/arraygeous/src/sum.js",
+    "./experimental-benchmark/arraygeous/src/count.js",
+    "./experimental-benchmark/arraygeous/src/diff.js",
+    "./experimental-benchmark/arraygeous/src/median.js",
+    "./experimental-benchmark/arraygeous/src/unique.js",
+    "./experimental-benchmark/arraygeous/src/every.js",
+    "./experimental-benchmark/arraygeous/src/filter.js",
+    "./experimental-benchmark/arraygeous/src/find.js",
+    "./experimental-benchmark/arraygeous/src/findIndex.js",
+    "./experimental-benchmark/arraygeous/src/includes.js",
+    "./experimental-benchmark/arraygeous/src/meanroll.js",
+    "./experimental-benchmark/arraygeous/src/some.js"
+  ],
+
+  // Not suitable for benchmark (ESM module)
+  "target-root-directory": "./experimental-benchmark/camelcase",
+  "include": [
+    "./experimental-benchmark/camelcase/index.js"
+  ],
+
+  "target-root-directory": "./experimental-benchmark/Case",
+  "include": [
+    "./experimental-benchmark/Case/src/Case.js"
+  ],
 }
