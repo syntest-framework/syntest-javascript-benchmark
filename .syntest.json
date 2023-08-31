@@ -11,6 +11,7 @@
   "modules": [
     "@syntest/javascript",
     "@syntest/plugin-core-metric-middleware-file-writer",
+    "@syntest/plugin-core-metric-middleware-statistics",
     "@syntest/plugin-core-search-algorithm-experimental"
   ],
   "console-log-level": "info",
@@ -20,7 +21,7 @@
     "error",
     "debug"
   ],
-  "metric-middleware-pipeline": ["metric-middleware-file-writer"],
+  "metric-middleware-pipeline": ["metric-middleware-statistics", "metric-middleware-file-writer"],
   "output-metrics": ["*"],
   "total-time": 120
 }
