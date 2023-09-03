@@ -134,11 +134,25 @@ projects = {
 presets = [
     "random",
     "NSGAII",
-    "MOSA",
+#    "MOSA",
     "DynaMOSA",
-    "SPEAII",
-    "MOSASPEAII",
-    "DynaMOSASPEAII"
+#    "SPEAII",
+#    "MOSASPEAII",
+#    "DynaMOSASPEAII"
+#    "SPEA2",
+#    "DynaMOSASPEA2",
+#    "DynaMOSASPEA2",
+#    "DynaMOSASPEA2Highest",
+#    "DynaMOSASPEA2Sum",
+    "DynaMOSA-no-type",
+    "DynaMOSA-prob",
+    "DynaMOSA-prob-all",
+    "DynaMOSA-prob-dyn",
+    "DynaMOSA-prob-pool",
+    "DynaMOSA-ranked",
+    "DynaMOSA-ranked-all",
+    "DynaMOSA-ranked-dyn",
+    "DynaMOSA-ranked-pool"
     ]
     
 configurations = []
@@ -154,7 +168,7 @@ for iteration in range(iterations):
 
 def call_script(args):
     (name, iteration, preset, project, filepath) = args
-    command = "docker run -it --name {} -e target_root_directory={} -e include={} -e preset={} syntest-brp-2023-{}".format(name, project, filepath, preset, config)
+    command = "docker run -it --name {} -e target_root_directory={} -e include={} -e preset={} -e time=180 syntest-brp-2023-{}".format(name, project, filepath, preset, config)
     print("Starting command with configuration: {} {} {} {} {}".format(name, iteration, preset, project, filepath))
     result = subprocess.call(command, shell=True)
     print("Completed command with configuration: {} {} {} {} {}".format(name, iteration, preset, project, filepath))
