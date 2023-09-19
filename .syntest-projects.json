@@ -1,14 +1,22 @@
 {
   "target-root-directory": "./benchmark/commanderjs",
-  "include": [
+  "target-include": [
     "./benchmark/commanderjs/lib/help.js",
     "./benchmark/commanderjs/lib/option.js",
     "./benchmark/commanderjs/lib/suggestSimilar.js"
   ],
+  "analysis-include": [
+    "./benchmark/commanderjs/**/*.js"
+  ],
+  "analysis-exclude": [
+    "./benchmark/commanderjs/**/*.test.js",
+    "./benchmark/commanderjs/test/*",
+    "./benchmark/commanderjs/node_modules/*"
+  ],
 
 
   "target-root-directory": "./benchmark/express",
-  "include": [
+  "target-include": [
     "./benchmark/express/lib/application.js",
     "./benchmark/express/lib/middleware/query.js",
     "./benchmark/express/lib/request.js",
@@ -16,10 +24,18 @@
     "./benchmark/express/lib/utils.js",
     "./benchmark/express/lib/view.js"
   ],
+  "analysis-include": [
+    "./benchmark/express/**/*.js"
+  ],
+  "analysis-exclude": [
+    "./benchmark/express/**/*.test.js",
+    "./benchmark/express/test/*",
+    "./benchmark/express/node_modules/*"
+  ],
 
 
   "target-root-directory": "./benchmark/javascript-algorithms",
-  "include": [
+  "target-include": [
     "./benchmark/javascript-algorithms/src/algorithms/graph/articulation-points/articulationPoints.js",
     "./benchmark/javascript-algorithms/src/algorithms/graph/bellman-ford/bellmanFord.js",
     "./benchmark/javascript-algorithms/src/algorithms/graph/travelling-salesman/bfTravellingSalesman.js",
@@ -40,10 +56,17 @@
     "./benchmark/javascript-algorithms/src/algorithms/sorting/counting-sort/CountingSort.js",
     "./benchmark/javascript-algorithms/src/data-structures/tree/red-black-tree/RedBlackTree.js"
   ],
-
+  "analysis-include": [
+    "./benchmark/javascript-algorithms/src/**/*.js"
+  ],
+  "analysis-exclude": [
+    "./benchmark/javascript-algorithms/**/*.test.js",
+    "./benchmark/javascript-algorithms/test/*",
+    "./benchmark/javascript-algorithms/node_modules/*"
+  ],
 
   "target-root-directory": "./benchmark/lodash",
-  "include": [
+  "target-include": [
     "./benchmark/lodash/.internal/equalArrays.js",
     "./benchmark/lodash/hasPath.js",
     "./benchmark/lodash/random.js",
@@ -55,10 +78,18 @@
     "./benchmark/lodash/truncate.js",
     "./benchmark/lodash/unzip.js"
   ],
+  "analysis-include": [
+    "./benchmark/lodash/**/*.js"
+  ],
+  "analysis-exclude": [
+    "./benchmark/lodash/**/*.test.js",
+    "./benchmark/lodash/test/*",
+    "./benchmark/lodash/node_modules/*"
+  ],
 
 
   "target-root-directory": "./benchmark/moment",
-  "include": [
+  "target-include": [
     "./benchmark/moment/src/lib/moment/add-subtract.js",
     "./benchmark/moment/src/lib/moment/calendar.js",
     "./benchmark/moment/src/lib/create/check-overflow.js",
@@ -80,9 +111,17 @@
     "./benchmark/moment/src/lib/moment/start-end-of.js",
     "./benchmark/moment/src/lib/create/valid.js"
   ],
+  "analysis-include": [
+    "./benchmark/moment/src/**/*.js"
+  ],
+  "analysis-exclude": [
+    "./benchmark/moment/**/*.test.js",
+    "./benchmark/moment/test/*",
+    "./benchmark/moment/node_modules/*"
+  ],
 
   "target-root-directory": "./experimental-benchmark/voca",
-  "include": [
+  "target-include": [
     "./experimental-benchmark/voca/src/strip/strip_tags.js",
     "./experimental-benchmark/voca/src/helper/format/replacement/compute.js",
     "./experimental-benchmark/voca/src/manipulate/tr.js",
@@ -137,20 +176,44 @@
     "./experimental-benchmark/voca/src/split/code_points.js",
     "./experimental-benchmark/voca/src/strip/strip_bom.js"
   ],
+  "analysis-include": [
+    "./experimental-benchmark/voca/src/**/*.js"
+  ],
+  "analysis-exclude": [
+    "./experimental-benchmark/voca/**/*.test.js",
+    "./experimental-benchmark/voca/test/*",
+    "./experimental-benchmark/voca/node_modules/*"
+  ],
 
   "target-root-directory": "./experimental-benchmark/accounting.js/",
-  "include": [
+  "target-include": [
     "./experimental-benchmark/accounting.js/accounting.js"
+  ],
+  "analysis-include": [
+    "./experimental-benchmark/accounting.js/**/*.js"
+  ],
+  "analysis-exclude": [
+    "./experimental-benchmark/accounting.js/**/*.test.js",
+    "./experimental-benchmark/accounting.js/test/*",
+    "./experimental-benchmark/accounting.js/node_modules/*"
   ],
 
   "target-root-directory": "./experimental-benchmark/array/",
-  "include": [
+  "target-include": [
     "./experimental-benchmark/array/lib/array.js",
     "./experimental-benchmark/array/lib/enumerable.js"
   ],
+  "analysis-include": [
+    "./experimental-benchmark/array/lib/**/*.js"
+  ],
+  "analysis-exclude": [
+    "./experimental-benchmark/array/**/*.test.js",
+    "./experimental-benchmark/array/test/*",
+    "./experimental-benchmark/array/node_modules/*"
+  ],
 
   "target-root-directory": "./experimental-benchmark/arraygeous",
-  "include": [
+  "target-include": [
     "./experimental-benchmark/arraygeous/src/sort.js",
     "./experimental-benchmark/arraygeous/src/cor.js",
     "./experimental-benchmark/arraygeous/src/mode.js",
@@ -177,15 +240,92 @@
     "./experimental-benchmark/arraygeous/src/meanroll.js",
     "./experimental-benchmark/arraygeous/src/some.js"
   ],
+  "analysis-include": [
+    "./experimental-benchmark/arraygeous/src/**/*.js"
+  ],
+  "analysis-exclude": [
+    "./experimental-benchmark/arraygeous/**/*.test.js",
+    "./experimental-benchmark/arraygeous/test/*",
+    "./experimental-benchmark/arraygeous/node_modules/*"
+  ],
 
   // Not suitable for benchmark (ESM module)
   "target-root-directory": "./experimental-benchmark/camelcase",
-  "include": [
+  "target-include": [
     "./experimental-benchmark/camelcase/index.js"
+  ],
+  "analysis-include": [
+    "./experimental-benchmark/camelcase/**/*.js"
+  ],
+  "analysis-exclude": [
+    "./experimental-benchmark/camelcase/**/*.test.js",
+    "./experimental-benchmark/camelcase/test/*",
+    "./experimental-benchmark/camelcase/node_modules/*"
   ],
 
   "target-root-directory": "./experimental-benchmark/Case",
-  "include": [
+  "target-include": [
     "./experimental-benchmark/Case/src/Case.js"
+  ],
+  "analysis-include": [
+    "./experimental-benchmark/Case/src/**/*.js"
+  ],
+  "analysis-exclude": [
+    "./experimental-benchmark/Case/**/*.test.js",
+    "./experimental-benchmark/Case/test/*",
+    "./experimental-benchmark/Case/node_modules/*"
+  ],
+
+  // Uses some kind of half type script import syntax
+  "target-root-directory": "./benchmark/react/packages",
+  "target-include": [
+    "./benchmark/react/packages/react/src/ReactElementValidator.js",
+    "./benchmark/react/packages/react/src/ReactElement.js",
+    "./benchmark/react/packages/react/src/ReactChildren.js",
+    "./benchmark/react/packages/react/src/ReactAct.js"
+  ],
+  "analysis-include": [
+    "./experimental-benchmark/react/src/**/*.js"
+  ],
+  "analysis-exclude": [
+    "./experimental-benchmark/react/**/*.test.js",
+    "./experimental-benchmark/react/test/*",
+    "./experimental-benchmark/react/node_modules/*"
+  ],
+
+  // Frontend code
+  "target-root-directory": "./benchmark/bootstrap",
+  "target-include": [
+    "./benchmark/bootstrap/js/src/dropdown.js",
+    "./benchmark/bootstrap/js/src/tooltip.js",
+    "./benchmark/bootstrap/js/src/carousel.js",
+    "./benchmark/bootstrap/js/src/modal.js",
+    "./benchmark/bootstrap/js/src/tab.js",
+    "./benchmark/bootstrap/js/src/collapse.js",
+    "./benchmark/bootstrap/js/src/scrollspy.js",
+    "./benchmark/bootstrap/js/src/offcanvas.js"
+  ],
+  "analysis-include": [
+    "./experimental-benchmark/react/src/**/*.js"
+  ],
+  "analysis-exclude": [
+    "./experimental-benchmark/react/**/*.test.js",
+    "./experimental-benchmark/react/test/*",
+    "./experimental-benchmark/react/node_modules/*"
+  ]
+
+  // cannot install dependencies
+  "target-root-directory": "./benchmark/plato/lib",
+  "target-include": [
+    "./benchmark/plato/lib/plato.js",
+    "./benchmark/plato/lib/cli.js",
+    "./benchmark/plato/lib/util.js"
+  ],
+
+  // no coverage??
+  "target-root-directory": "./benchmark/nyc",
+  "target-include": [
+    "./benchmark/nyc/lib/commands/instrument.js",
+    "./benchmark/nyc/lib/commands/helpers.js"
   ],
 }

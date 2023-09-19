@@ -1,7 +1,15 @@
 {
   "target-root-directory": "./benchmark/commanderjs",
-  "include": [
+  "target-include": [
     "./benchmark/commanderjs/lib/help.js"
+  ],
+  "analysis-include": [
+    "./benchmark/commanderjs/lib/**/*.js"
+  ],
+  "analysis-exclude": [
+    "./benchmark/commanderjs/**/*.test.js",
+    "./benchmark/commanderjs/test/*",
+    "./benchmark/commanderjs/node_modules/*"
   ],
   "crossover": "javascript-tree",
   "sampler": "javascript-random",
@@ -23,5 +31,5 @@
   ],
   "metric-middleware-pipeline": ["metric-middleware-statistics", "metric-middleware-file-writer"],
   "output-metrics": ["*"],
-  "total-time": 120
+  "total-time": 10
 }
