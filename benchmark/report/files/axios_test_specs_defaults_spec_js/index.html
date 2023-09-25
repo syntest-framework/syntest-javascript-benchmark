@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - axios/test/specs/defaults.spec.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="http://github.com/es-analysis/plato">Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>axios/test/specs/defaults.spec.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">74.57</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">175</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">24.27</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">1.66</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">var defaults = require(&#039;../../lib/defaults&#039;);
+var utils = require(&#039;../../lib/utils&#039;);
+
+describe(&#039;defaults&#039;, function () {
+  var XSRF_COOKIE_NAME = &#039;CUSTOM-XSRF-TOKEN&#039;;
+
+  beforeEach(function () {
+    jasmine.Ajax.install();
+  });
+
+  afterEach(function () {
+    jasmine.Ajax.uninstall();
+    delete axios.defaults.baseURL;
+    delete axios.defaults.headers.get[&#039;X-CUSTOM-HEADER&#039;];
+    delete axios.defaults.headers.post[&#039;X-CUSTOM-HEADER&#039;];
+    document.cookie = XSRF_COOKIE_NAME + &#039;=;expires=&#039; + new Date(Date.now() - 86400000).toGMTString();
+  });
+
+  it(&#039;should transform request json&#039;, function () {
+    expect(defaults.transformRequest[0]({foo: &#039;bar&#039;})).toEqual(&#039;{&quot;foo&quot;:&quot;bar&quot;}&#039;);
+  });
+
+  it(&quot;should also transform request json when &#039;Content-Type&#039; is &#039;application/json&#039;&quot;, function () {
+    var headers = {
+      &#039;Content-Type&#039;: &#039;application/json&#039;,
+    };
+    expect(defaults.transformRequest[0](JSON.stringify({ foo: &#039;bar&#039; }), headers)).toEqual(&#039;{&quot;foo&quot;:&quot;bar&quot;}&#039;);
+    expect(defaults.transformRequest[0]([42, 43], headers)).toEqual(&#039;[42,43]&#039;);
+    expect(defaults.transformRequest[0](&#039;foo&#039;, headers)).toEqual(&#039;&quot;foo&quot;&#039;);
+    expect(defaults.transformRequest[0](42, headers)).toEqual(&#039;42&#039;);
+    expect(defaults.transformRequest[0](true, headers)).toEqual(&#039;true&#039;);
+    expect(defaults.transformRequest[0](false, headers)).toEqual(&#039;false&#039;);
+    expect(defaults.transformRequest[0](null, headers)).toEqual(&#039;null&#039;);
+  });  
+
+  it(&#039;should do nothing to request string&#039;, function () {
+    expect(defaults.transformRequest[0](&#039;foo=bar&#039;)).toEqual(&#039;foo=bar&#039;);
+  });
+
+  it(&#039;should transform response json&#039;, function () {
+    var data = defaults.transformResponse[0].call(defaults, &#039;{&quot;foo&quot;:&quot;bar&quot;}&#039;);
+
+    expect(typeof data).toEqual(&#039;object&#039;);
+    expect(data.foo).toEqual(&#039;bar&#039;);
+  });
+
+  it(&#039;should do nothing to response string&#039;, function () {
+    expect(defaults.transformResponse[0](&#039;foo=bar&#039;)).toEqual(&#039;foo=bar&#039;);
+  });
+
+  it(&#039;should use global defaults config&#039;, function (done) {
+    axios(&#039;/foo&#039;);
+
+    getAjaxRequest().then(function (request) {
+      expect(request.url).toBe(&#039;/foo&#039;);
+      done();
+    });
+  });
+
+  it(&#039;should use modified defaults config&#039;, function (done) {
+    axios.defaults.baseURL = &#039;http://example.com/&#039;;
+
+    axios(&#039;/foo&#039;);
+
+    getAjaxRequest().then(function (request) {
+      expect(request.url).toBe(&#039;http://example.com/foo&#039;);
+      done();
+    });
+  });
+
+  it(&#039;should use request config&#039;, function (done) {
+    axios(&#039;/foo&#039;, {
+      baseURL: &#039;http://www.example.com&#039;
+    });
+
+    getAjaxRequest().then(function (request) {
+      expect(request.url).toBe(&#039;http://www.example.com/foo&#039;);
+      done();
+    });
+  });
+
+  it(&#039;should use default config for custom instance&#039;, function (done) {
+    var instance = axios.create({
+      xsrfCookieName: XSRF_COOKIE_NAME,
+      xsrfHeaderName: &#039;X-CUSTOM-XSRF-TOKEN&#039;
+    });
+    document.cookie = instance.defaults.xsrfCookieName + &#039;=foobarbaz&#039;;
+
+    instance.get(&#039;/foo&#039;);
+
+    getAjaxRequest().then(function (request) {
+      expect(request.requestHeaders[instance.defaults.xsrfHeaderName]).toEqual(&#039;foobarbaz&#039;);
+      done();
+    });
+  });
+
+  it(&#039;should use GET headers&#039;, function (done) {
+    axios.defaults.headers.get[&#039;X-CUSTOM-HEADER&#039;] = &#039;foo&#039;;
+    axios.get(&#039;/foo&#039;);
+
+    getAjaxRequest().then(function (request) {
+      expect(request.requestHeaders[&#039;X-CUSTOM-HEADER&#039;]).toBe(&#039;foo&#039;);
+      done();
+    });
+  });
+
+  it(&#039;should use POST headers&#039;, function (done) {
+    axios.defaults.headers.post[&#039;X-CUSTOM-HEADER&#039;] = &#039;foo&#039;;
+    axios.post(&#039;/foo&#039;, {});
+
+    getAjaxRequest().then(function (request) {
+      expect(request.requestHeaders[&#039;X-CUSTOM-HEADER&#039;]).toBe(&#039;foo&#039;);
+      done();
+    });
+  });
+
+  it(&#039;should use header config&#039;, function (done) {
+    var instance = axios.create({
+      headers: {
+        common: {
+          &#039;X-COMMON-HEADER&#039;: &#039;commonHeaderValue&#039;
+        },
+        get: {
+          &#039;X-GET-HEADER&#039;: &#039;getHeaderValue&#039;
+        },
+        post: {
+          &#039;X-POST-HEADER&#039;: &#039;postHeaderValue&#039;
+        }
+      }
+    });
+
+    instance.get(&#039;/foo&#039;, {
+      headers: {
+        &#039;X-FOO-HEADER&#039;: &#039;fooHeaderValue&#039;,
+        &#039;X-BAR-HEADER&#039;: &#039;barHeaderValue&#039;
+      }
+    });
+
+    getAjaxRequest().then(function (request) {
+      expect(request.requestHeaders).toEqual(
+        utils.merge(defaults.headers.common, defaults.headers.get, {
+          &#039;X-COMMON-HEADER&#039;: &#039;commonHeaderValue&#039;,
+          &#039;X-GET-HEADER&#039;: &#039;getHeaderValue&#039;,
+          &#039;X-FOO-HEADER&#039;: &#039;fooHeaderValue&#039;,
+          &#039;X-BAR-HEADER&#039;: &#039;barHeaderValue&#039;
+        })
+      );
+      done();
+    });
+  });
+
+  it(&#039;should be used by custom instance if set before instance created&#039;, function (done) {
+    axios.defaults.baseURL = &#039;http://example.org/&#039;;
+    var instance = axios.create();
+
+    instance.get(&#039;/foo&#039;);
+
+    getAjaxRequest().then(function (request) {
+      expect(request.url).toBe(&#039;http://example.org/foo&#039;);
+      done();
+    });
+  });
+
+  it(&#039;should not be used by custom instance if set after instance created&#039;, function (done) {
+    var instance = axios.create();
+    axios.defaults.baseURL = &#039;http://example.org/&#039;;
+
+    instance.get(&#039;/foo&#039;);
+
+    getAjaxRequest().then(function (request) {
+      expect(request.url).toBe(&#039;/foo&#039;);
+      done();
+    });
+  });
+});</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ cyclomatic }} <br>
+    Length : {{ halstead.length }} <br>
+    Difficulty : {{ halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

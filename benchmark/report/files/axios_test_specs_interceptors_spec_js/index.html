@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - axios/test/specs/interceptors.spec.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="http://github.com/es-analysis/plato">Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>axios/test/specs/interceptors.spec.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">79.21</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">574</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">50.11</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">5.06</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">describe(&#039;interceptors&#039;, function () {
+  beforeEach(function () {
+    jasmine.Ajax.install();
+  });
+
+  afterEach(function () {
+    jasmine.Ajax.uninstall();
+    axios.interceptors.request.handlers = [];
+    axios.interceptors.response.handlers = [];
+  });
+
+  it(&#039;should add a request interceptor (asynchronous by default)&#039;, function (done) {
+    var asyncFlag = false;
+    axios.interceptors.request.use(function (config) {
+      config.headers.test = &#039;added by interceptor&#039;;
+      expect(asyncFlag).toBe(true);
+      return config;
+    });
+
+    axios(&#039;/foo&#039;);
+    asyncFlag = true;
+
+    getAjaxRequest().then(function (request) {
+      expect(request.requestHeaders.test).toBe(&#039;added by interceptor&#039;);
+      done();
+    });
+  });
+
+  it(&#039;should add a request interceptor (explicitly flagged as asynchronous)&#039;, function (done) {
+    var asyncFlag = false;
+    axios.interceptors.request.use(function (config) {
+      config.headers.test = &#039;added by interceptor&#039;;
+      expect(asyncFlag).toBe(true);
+      return config;
+    }, null, { synchronous: false });
+
+    axios(&#039;/foo&#039;);
+    asyncFlag = true;
+
+    getAjaxRequest().then(function (request) {
+      expect(request.requestHeaders.test).toBe(&#039;added by interceptor&#039;);
+      done();
+    });
+  });
+
+  it(&#039;should add a request interceptor that is executed synchronously when flag is provided&#039;, function (done) {
+    var asyncFlag = false;
+    axios.interceptors.request.use(function (config) {
+      config.headers.test = &#039;added by synchronous interceptor&#039;;
+      expect(asyncFlag).toBe(false);
+      return config;
+    }, null, { synchronous: true });
+
+    axios(&#039;/foo&#039;);
+    asyncFlag = true;
+
+    getAjaxRequest().then(function (request) {
+      expect(request.requestHeaders.test).toBe(&#039;added by synchronous interceptor&#039;);
+      done();
+    });
+  });
+
+  it(&#039;should execute asynchronously when not all interceptors are explicitly flagged as synchronous&#039;, function (done) {
+    var asyncFlag = false;
+    axios.interceptors.request.use(function (config) {
+      config.headers.foo = &#039;uh oh, async&#039;;
+      expect(asyncFlag).toBe(true);
+      return config;
+    });
+
+    axios.interceptors.request.use(function (config) {
+      config.headers.test = &#039;added by synchronous interceptor&#039;;
+      expect(asyncFlag).toBe(true);
+      return config;
+    }, null, { synchronous: true });
+
+    axios.interceptors.request.use(function (config) {
+      config.headers.test = &#039;added by the async interceptor&#039;;
+      expect(asyncFlag).toBe(true);
+      return config;
+    });
+
+    axios(&#039;/foo&#039;);
+    asyncFlag = true;
+
+    getAjaxRequest().then(function (request) {
+      expect(request.requestHeaders.foo).toBe(&#039;uh oh, async&#039;);
+      /* request interceptors have a reversed execution order */
+      expect(request.requestHeaders.test).toBe(&#039;added by synchronous interceptor&#039;);
+      done();
+    });
+  });
+
+  it(&#039;runs the interceptor if runWhen function is provided and resolves to true&#039;, function (done) {
+    function onGetCall(config) {
+      return config.method === &#039;get&#039;;
+    }
+    axios.interceptors.request.use(function (config) {
+      config.headers.test = &#039;special get headers&#039;;
+      return config;
+    }, null, { runWhen: onGetCall });
+
+    axios(&#039;/foo&#039;);
+
+    getAjaxRequest().then(function (request) {
+      expect(request.requestHeaders.test).toBe(&#039;special get headers&#039;);
+      done();
+    });
+  });
+
+  it(&#039;does not run the interceptor if runWhen function is provided and resolves to false&#039;, function (done) {
+    function onPostCall(config) {
+      return config.method === &#039;post&#039;;
+    }
+    axios.interceptors.request.use(function (config) {
+      config.headers.test = &#039;special get headers&#039;;
+      return config;
+    }, null, { runWhen: onPostCall });
+
+    axios(&#039;/foo&#039;);
+
+    getAjaxRequest().then(function (request) {
+      expect(request.requestHeaders.test).toBeUndefined()
+      done();
+    });
+  });
+
+  it(&#039;does not run async interceptor if runWhen function is provided and resolves to false (and run synchronously)&#039;, function (done) {
+    var asyncFlag = false;
+
+    function onPostCall(config) {
+      return config.method === &#039;post&#039;;
+    }
+    axios.interceptors.request.use(function (config) {
+      config.headers.test = &#039;special get headers&#039;;
+      return config;
+    }, null, { synchronous: false, runWhen: onPostCall });
+
+    axios.interceptors.request.use(function (config) {
+      config.headers.sync = &#039;hello world&#039;;
+      expect(asyncFlag).toBe(false);
+      return config;
+    }, null, { synchronous: true });
+
+    axios(&#039;/foo&#039;);
+    asyncFlag = true
+
+    getAjaxRequest().then(function (request) {
+      expect(request.requestHeaders.test).toBeUndefined()
+      expect(request.requestHeaders.sync).toBe(&#039;hello world&#039;)
+      done();
+    });
+  });
+
+  it(&#039;should add a request interceptor with an onRejected block that is called if interceptor code fails&#039;, function (done) {
+    var rejectedSpy = jasmine.createSpy(&#039;rejectedSpy&#039;);
+    var error = new Error(&#039;deadly error&#039;);
+    axios.interceptors.request.use(function () {
+      throw error;
+    }, rejectedSpy, { synchronous: true });
+
+    axios(&#039;/foo&#039;);
+
+    getAjaxRequest().then(function () {
+      expect(rejectedSpy).toHaveBeenCalledWith(error);
+      done();
+    });
+  });
+
+  it(&#039;should add a request interceptor that returns a new config object&#039;, function (done) {
+    axios.interceptors.request.use(function () {
+      return {
+        url: &#039;/bar&#039;,
+        method: &#039;post&#039;
+      };
+    });
+
+    axios(&#039;/foo&#039;);
+
+    getAjaxRequest().then(function (request) {
+      expect(request.method).toBe(&#039;POST&#039;);
+      expect(request.url).toBe(&#039;/bar&#039;);
+      done();
+    });
+  });
+
+  it(&#039;should add a request interceptor that returns a promise&#039;, function (done) {
+    axios.interceptors.request.use(function (config) {
+      return new Promise(function (resolve) {
+        // do something async
+        setTimeout(function () {
+          config.headers.async = &#039;promise&#039;;
+          resolve(config);
+        }, 100);
+      });
+    });
+
+    axios(&#039;/foo&#039;);
+
+    getAjaxRequest().then(function (request) {
+      expect(request.requestHeaders.async).toBe(&#039;promise&#039;);
+      done();
+    });
+  });
+
+  it(&#039;should add multiple request interceptors&#039;, function (done) {
+    axios.interceptors.request.use(function (config) {
+      config.headers.test1 = &#039;1&#039;;
+      return config;
+    });
+    axios.interceptors.request.use(function (config) {
+      config.headers.test2 = &#039;2&#039;;
+      return config;
+    });
+    axios.interceptors.request.use(function (config) {
+      config.headers.test3 = &#039;3&#039;;
+      return config;
+    });
+
+    axios(&#039;/foo&#039;);
+
+    getAjaxRequest().then(function (request) {
+      expect(request.requestHeaders.test1).toBe(&#039;1&#039;);
+      expect(request.requestHeaders.test2).toBe(&#039;2&#039;);
+      expect(request.requestHeaders.test3).toBe(&#039;3&#039;);
+      done();
+    });
+  });
+
+  it(&#039;should add a response interceptor&#039;, function (done) {
+    var response;
+
+    axios.interceptors.response.use(function (data) {
+      data.data = data.data + &#039; - modified by interceptor&#039;;
+      return data;
+    });
+
+    axios(&#039;/foo&#039;).then(function (data) {
+      response = data;
+    });
+
+    getAjaxRequest().then(function (request) {
+      request.respondWith({
+        status: 200,
+        responseText: &#039;OK&#039;
+      });
+
+      setTimeout(function () {
+        expect(response.data).toBe(&#039;OK - modified by interceptor&#039;);
+        done();
+      }, 100);
+    });
+  });
+
+  it(&#039;should add a response interceptor when request interceptor is defined&#039;, function (done) {
+    var response;
+
+    axios.interceptors.request.use(function (data) {
+      return data;
+    });
+
+    axios.interceptors.response.use(function (data) {
+      data.data = data.data + &#039; - modified by interceptor&#039;;
+      return data;
+    });
+
+    axios(&#039;/foo&#039;).then(function (data) {
+      response = data;
+    });
+
+    getAjaxRequest().then(function (request) {
+      request.respondWith({
+        status: 200,
+        responseText: &#039;OK&#039;
+      });
+
+      setTimeout(function () {
+        expect(response.data).toBe(&#039;OK - modified by interceptor&#039;);
+        done();
+      }, 100);
+    });
+  });
+
+  it(&#039;should add a response interceptor that returns a new data object&#039;, function (done) {
+    var response;
+
+    axios.interceptors.response.use(function () {
+      return {
+        data: &#039;stuff&#039;
+      };
+    });
+
+    axios(&#039;/foo&#039;).then(function (data) {
+      response = data;
+    });
+
+    getAjaxRequest().then(function (request) {
+      request.respondWith({
+        status: 200,
+        responseText: &#039;OK&#039;
+      });
+
+      setTimeout(function () {
+        expect(response.data).toBe(&#039;stuff&#039;);
+        done();
+      }, 100);
+    });
+  });
+
+  it(&#039;should add a response interceptor that returns a promise&#039;, function (done) {
+    var response;
+
+    axios.interceptors.response.use(function (data) {
+      return new Promise(function (resolve) {
+        // do something async
+        setTimeout(function () {
+          data.data = &#039;you have been promised!&#039;;
+          resolve(data);
+        }, 10);
+      });
+    });
+
+    axios(&#039;/foo&#039;).then(function (data) {
+      response = data;
+    });
+
+    getAjaxRequest().then(function (request) {
+      request.respondWith({
+        status: 200,
+        responseText: &#039;OK&#039;
+      });
+
+      setTimeout(function () {
+        expect(response.data).toBe(&#039;you have been promised!&#039;);
+        done();
+      }, 100);
+    });
+  });
+
+  describe(&#039;given you add multiple response interceptors&#039;, function () {
+
+    describe(&#039;and when the response was fulfilled&#039;, function () {
+
+      function fireRequestAndExpect(expectation) {
+        var response;
+        axios(&#039;/foo&#039;).then(function(data) {
+          response = data;
+        });
+        getAjaxRequest().then(function (request) {
+          request.respondWith({
+            status: 200,
+            responseText: &#039;OK&#039;
+          });
+
+          setTimeout(function() {
+            expectation(response)
+          }, 100);
+        });
+      }
+
+      it(&#039;then each interceptor is executed&#039;, function (done) {
+        var interceptor1 = jasmine.createSpy(&#039;interceptor1&#039;);
+        var interceptor2 = jasmine.createSpy(&#039;interceptor2&#039;);
+        axios.interceptors.response.use(interceptor1);
+        axios.interceptors.response.use(interceptor2);
+
+        fireRequestAndExpect(function () {
+          expect(interceptor1).toHaveBeenCalled();
+          expect(interceptor2).toHaveBeenCalled();
+          done();
+        });
+      });
+
+      it(&#039;then they are executed in the order they were added&#039;, function (done) {
+        var interceptor1 = jasmine.createSpy(&#039;interceptor1&#039;);
+        var interceptor2 = jasmine.createSpy(&#039;interceptor2&#039;);
+        axios.interceptors.response.use(interceptor1);
+        axios.interceptors.response.use(interceptor2);
+
+        fireRequestAndExpect(function () {
+          expect(interceptor1).toHaveBeenCalledBefore(interceptor2);
+          done();
+        });
+      });
+
+      it(&#039;then only the last interceptor\&#039;s result is returned&#039;, function (done) {
+        axios.interceptors.response.use(function() {
+          return &#039;response 1&#039;;
+        });
+        axios.interceptors.response.use(function() {
+          return &#039;response 2&#039;;
+        });
+
+        fireRequestAndExpect(function (response) {
+          expect(response).toBe(&#039;response 2&#039;);
+          done();
+        });
+      });
+
+      it(&#039;then every interceptor receives the result of it\&#039;s predecessor&#039;, function (done) {
+        axios.interceptors.response.use(function() {
+          return &#039;response 1&#039;;
+        });
+        axios.interceptors.response.use(function(response) {
+          return [response, &#039;response 2&#039;];
+        });
+
+        fireRequestAndExpect(function (response) {
+          expect(response).toEqual([&#039;response 1&#039;, &#039;response 2&#039;]);
+          done();
+        });
+      });
+
+      describe(&#039;and when the fulfillment-interceptor throws&#039;, function () {
+
+        function fireRequestCatchAndExpect(expectation) {
+          axios(&#039;/foo&#039;).catch(function(data) {
+            // dont handle result
+          });
+          getAjaxRequest().then(function (request) {
+            request.respondWith({
+              status: 200,
+              responseText: &#039;OK&#039;
+            });
+
+            setTimeout(function() {
+              expectation()
+            }, 100);
+          });
+        }
+
+        it(&#039;then the following fulfillment-interceptor is not called&#039;, function (done) {
+          axios.interceptors.response.use(function() {
+            throw Error(&#039;throwing interceptor&#039;);
+          });
+          var interceptor2 = jasmine.createSpy(&#039;interceptor2&#039;);
+          axios.interceptors.response.use(interceptor2);
+
+          fireRequestCatchAndExpect(function () {
+            expect(interceptor2).not.toHaveBeenCalled();
+            done();
+          });
+        });
+
+        it(&#039;then the following rejection-interceptor is called&#039;, function (done) {
+          axios.interceptors.response.use(function() {
+            throw Error(&#039;throwing interceptor&#039;);
+          });
+          var unusedFulfillInterceptor = function() {};
+          var rejectIntercept = jasmine.createSpy(&#039;rejectIntercept&#039;);
+          axios.interceptors.response.use(unusedFulfillInterceptor, rejectIntercept);
+
+          fireRequestCatchAndExpect(function () {
+            expect(rejectIntercept).toHaveBeenCalled();
+            done();
+          });
+        });
+        
+        it(&#039;once caught, another following fulfill-interceptor is called again (just like in a promise chain)&#039;, function (done) {
+          axios.interceptors.response.use(function() {
+            throw Error(&#039;throwing interceptor&#039;);
+          });
+
+          var unusedFulfillInterceptor = function() {};
+          var catchingThrowingInterceptor = function() {};
+          axios.interceptors.response.use(unusedFulfillInterceptor, catchingThrowingInterceptor);
+
+          var interceptor3 = jasmine.createSpy(&#039;interceptor3&#039;);
+          axios.interceptors.response.use(interceptor3);
+
+          fireRequestCatchAndExpect(function () {
+            expect(interceptor3).toHaveBeenCalled();
+            done();
+          });
+        });
+      });
+    });
+  });
+
+  it(&#039;should allow removing interceptors&#039;, function (done) {
+    var response, intercept;
+
+    axios.interceptors.response.use(function (data) {
+      data.data = data.data + &#039;1&#039;;
+      return data;
+    });
+    intercept = axios.interceptors.response.use(function (data) {
+      data.data = data.data + &#039;2&#039;;
+      return data;
+    });
+    axios.interceptors.response.use(function (data) {
+      data.data = data.data + &#039;3&#039;;
+      return data;
+    });
+
+    axios.interceptors.response.eject(intercept);
+
+    axios(&#039;/foo&#039;).then(function (data) {
+      response = data;
+    });
+
+    getAjaxRequest().then(function (request) {
+      request.respondWith({
+        status: 200,
+        responseText: &#039;OK&#039;
+      });
+
+      setTimeout(function () {
+        expect(response.data).toBe(&#039;OK13&#039;);
+        done();
+      }, 100);
+    });
+  });
+
+  it(&#039;should remove async interceptor before making request and execute synchronously&#039;, function (done) {
+    var asyncFlag = false;
+    var asyncIntercept = axios.interceptors.request.use(function (config) {
+      config.headers.async = &#039;async it!&#039;;
+      return config;
+    }, null, { synchronous: false });
+
+    var syncIntercept = axios.interceptors.request.use(function (config) {
+      config.headers.sync = &#039;hello world&#039;;
+      expect(asyncFlag).toBe(false);
+      return config;
+    }, null, { synchronous: true });
+
+
+    axios.interceptors.request.eject(asyncIntercept);
+
+    axios(&#039;/foo&#039;)
+    asyncFlag = true
+
+    getAjaxRequest().then(function (request) {
+      expect(request.requestHeaders.async).toBeUndefined();
+      expect(request.requestHeaders.sync).toBe(&#039;hello world&#039;);
+      done()
+    });
+  });
+
+  it(&#039;should execute interceptors before transformers&#039;, function (done) {
+    axios.interceptors.request.use(function (config) {
+      config.data.baz = &#039;qux&#039;;
+      return config;
+    });
+
+    axios.post(&#039;/foo&#039;, {
+      foo: &#039;bar&#039;
+    });
+
+    getAjaxRequest().then(function (request) {
+      expect(request.params).toEqual(&#039;{&quot;foo&quot;:&quot;bar&quot;,&quot;baz&quot;:&quot;qux&quot;}&#039;);
+      done();
+    });
+  });
+
+  it(&#039;should modify base URL in request interceptor&#039;, function (done) {
+    var instance = axios.create({
+      baseURL: &#039;http://test.com/&#039;
+    });
+
+    instance.interceptors.request.use(function (config) {
+      config.baseURL = &#039;http://rebase.com/&#039;;
+      return config;
+    });
+
+    instance.get(&#039;/foo&#039;);
+
+    getAjaxRequest().then(function (request) {
+      expect(request.url).toBe(&#039;http://rebase.com/foo&#039;);
+      done();
+    });
+  });
+});</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ cyclomatic }} <br>
+    Length : {{ halstead.length }} <br>
+    Difficulty : {{ halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>
