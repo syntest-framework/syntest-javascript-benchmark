@@ -20,6 +20,10 @@
     "type": "git",
     "url": "git+https://github.com/syntest-framework/syntest-javascript-benchmark.git"
   },
+  "scripts": {
+    "posti": "npm run postinstall",
+    "postinstall": "./scripts/install.sh"
+  },
   "dependencies": {
     "@syntest/cli": "file:../syntest-core/tools/cli",
     "@syntest/javascript": "file:../syntest-javascript/tools/javascript",
