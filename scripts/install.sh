@@ -1,3 +1,5 @@
+git submodule init
+
 cd benchmark/
 cd axios                    && npm i        && cd ..
 # cd chalk                    && npm i        && cd ..

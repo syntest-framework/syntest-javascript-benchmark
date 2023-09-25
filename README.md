@@ -14,6 +14,8 @@ git clone git@github.com:syntest-framework/syntest-javascript-benchmark.git
 cd syntest-javascript-benchmark
 npm install
 ```
+> Note: this will also initiate the git submodules and install dependencies of the benchmark projects
+
 
 3. Run the tool
 ```bash
@@ -66,6 +68,7 @@ npm run build
 ```bash
 npm install
 ```
+> Note: this will also initiate the git submodules and install dependencies of the benchmark projects
 
 7. Run the tool
 ```bash
