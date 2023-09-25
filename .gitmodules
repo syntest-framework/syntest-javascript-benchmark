@@ -1,6 +1,6 @@
-[submodule "benchmark/--force"]
-	path = benchmark/--force
-	url = https://github.com/axios/axios.git
 [submodule "benchmark/axios"]
 	path = benchmark/axios
 	url = https://github.com/axios/axios.git
+[submodule "benchmark/chalk"]
+	path = benchmark/chalk
+	url = https://github.com/chalk/chalk.git
