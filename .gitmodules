@@ -4,3 +4,6 @@
 [submodule "benchmark/chalk"]
 	path = benchmark/chalk
 	url = https://github.com/chalk/chalk.git
+[submodule "benchmark/numbers.js"]
+	path = benchmark/numbers.js
+	url = https://github.com/numbers/numbers.js.git
