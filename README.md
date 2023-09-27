@@ -52,23 +52,13 @@ npm install
 npm run build
 ```
 
-5. Move into the `benchmark` project and change the dependencies to local references:
-```json
-"dependencies": {
-    "@syntest/cli": "file:../syntest-core/tools/cli",
-    "@syntest/javascript": "file:../syntest-javascript/tools/javascript",
-    "@syntest/plugin-core-event-listener-graphing": "file:../syntest-core/plugins/plugin-core-event-listener-graphing",
-    "@syntest/plugin-core-metric-middleware-file-writer": "file:../syntest-core/plugins/plugin-core-metric-middleware-file-writer",
-    "chai": "4.3.6",
-    "chai-as-promised": "7.1.1"
-  }
-```
-
-6. Install the dependencies
+5. Move into the `benchmark` project and call the local:install script:
 ```bash
-npm install
+cd syntest-javascript-benchmark
+npm run local:install
 ```
-> Note: this will also initiate the git submodules and install dependencies of the benchmark projects
+This will link the core and javascript project to the current node_modules folder.
+> Note: this will also initiate the git submodules and install dependencies of the benchmark projects.
 
 7. Run the tool
 ```bash

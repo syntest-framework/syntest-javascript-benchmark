@@ -21,15 +21,16 @@
     "url": "git+https://github.com/syntest-framework/syntest-javascript-benchmark.git"
   },
   "scripts": {
+    "local:install": "npm i && ./scripts/link.sh",
     "posti": "npm run postinstall",
     "postinstall": "./scripts/install.sh"
   },
   "dependencies": {
-    "@syntest/cli": "file:../syntest-core/tools/cli",
-    "@syntest/javascript": "file:../syntest-javascript/tools/javascript",
-    "@syntest/plugin-core-metric-middleware-file-writer": "file:../syntest-core/plugins/plugin-core-metric-middleware-file-writer",
-    "@syntest/plugin-core-metric-middleware-statistics": "file:../syntest-core/plugins/plugin-core-metric-middleware-statistics",
-    "@syntest/plugin-core-search-algorithm-experimental": "file:../syntest-core/plugins/plugin-core-search-algorithm-experimental",
+    "@syntest/cli": "^0.2.1",
+    "@syntest/javascript": "^0.1.0",
+    "@syntest/plugin-core-metric-middleware-file-writer": "^0.1.1",
+    "@syntest/plugin-core-metric-middleware-statistics": "^0.1.1",
+    "@syntest/plugin-core-search-algorithm-experimental": "^0.1.1",
     "chai": "4.3.6",
     "chai-as-promised": "7.1.1"
   }

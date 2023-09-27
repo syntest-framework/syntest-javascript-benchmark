@@ -1,16 +1,19 @@
 {
-  "target-root-directory": "./benchmark/commanderjs",
+  
+  
+  "target-root-directory": "./benchmark/axios",
   "target-include": [
-    "./benchmark/commanderjs/lib/help.js"
+    "./benchmark/axios/lib/adapters/http.js"
   ],
   "analysis-include": [
-    "./benchmark/commanderjs/lib/**/*.js"
+    "./benchmark/axios/lib/**/*.js"
   ],
   "analysis-exclude": [
-    "./benchmark/commanderjs/**/*.test.js",
-    "./benchmark/commanderjs/test/*",
-    "./benchmark/commanderjs/node_modules/*"
+    "./benchmark/axios/**/*.test.js",
+    "./benchmark/axios/test/**/*.*",
+    "./benchmark/axios/node_modules/**/*.*"
   ],
+
   "crossover": "javascript-tree",
   "sampler": "javascript-random",
   "termination-triggers": [

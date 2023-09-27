@@ -1,4 +1,17 @@
 {
+  "target-root-directory": "./benchmark/axios",
+  "target-include": [
+    "./benchmark/axios/lib/adapters/http.js"
+  ],
+  "analysis-include": [
+    "./benchmark/axios/lib/**/*.js"
+  ],
+  "analysis-exclude": [
+    "./benchmark/axios/**/*.test.js",
+    "./benchmark/axios/test/**/*.*",
+    "./benchmark/axios/node_modules/**/*.*"
+  ],
+
   "target-root-directory": "./benchmark/commanderjs",
   "target-include": [
     "./benchmark/commanderjs/lib/help.js",
@@ -10,8 +23,8 @@
   ],
   "analysis-exclude": [
     "./benchmark/commanderjs/**/*.test.js",
-    "./benchmark/commanderjs/test/*",
-    "./benchmark/commanderjs/node_modules/*"
+    "./benchmark/commanderjs/test/**/*.*",
+    "./benchmark/commanderjs/node_modules/**/*.*"
   ],
 
 
@@ -25,12 +38,12 @@
     "./benchmark/express/lib/view.js"
   ],
   "analysis-include": [
-    "./benchmark/express/**/*.js"
+    "./benchmark/express/lib/**/*.js"
   ],
   "analysis-exclude": [
     "./benchmark/express/**/*.test.js",
-    "./benchmark/express/test/*",
-    "./benchmark/express/node_modules/*"
+    "./benchmark/express/test/**/*.*",
+    "./benchmark/express/node_modules/**/*.*"
   ],
 
 
@@ -61,8 +74,8 @@
   ],
   "analysis-exclude": [
     "./benchmark/javascript-algorithms/**/*.test.js",
-    "./benchmark/javascript-algorithms/test/*",
-    "./benchmark/javascript-algorithms/node_modules/*"
+    "./benchmark/javascript-algorithms/test/**/*.*",
+    "./benchmark/javascript-algorithms/node_modules/**/*.*"
   ],
 
   "target-root-directory": "./benchmark/lodash",
@@ -83,8 +96,8 @@
   ],
   "analysis-exclude": [
     "./benchmark/lodash/**/*.test.js",
-    "./benchmark/lodash/test/*",
-    "./benchmark/lodash/node_modules/*"
+    "./benchmark/lodash/test/**/*.*",
+    "./benchmark/lodash/node_modules/**/*.*"
   ],
 
 
@@ -116,8 +129,8 @@
   ],
   "analysis-exclude": [
     "./benchmark/moment/**/*.test.js",
-    "./benchmark/moment/test/*",
-    "./benchmark/moment/node_modules/*"
+    "./benchmark/moment/test/**/*.*",
+    "./benchmark/moment/node_modules/**/*.*"
   ],
 
   "target-root-directory": "./experimental-benchmark/voca",
@@ -181,8 +194,8 @@
   ],
   "analysis-exclude": [
     "./experimental-benchmark/voca/**/*.test.js",
-    "./experimental-benchmark/voca/test/*",
-    "./experimental-benchmark/voca/node_modules/*"
+    "./experimental-benchmark/voca/test/**/*.*",
+    "./experimental-benchmark/voca/node_modules/**/*.*"
   ],
 
   "target-root-directory": "./experimental-benchmark/accounting.js/",
@@ -194,8 +207,8 @@
   ],
   "analysis-exclude": [
     "./experimental-benchmark/accounting.js/**/*.test.js",
-    "./experimental-benchmark/accounting.js/test/*",
-    "./experimental-benchmark/accounting.js/node_modules/*"
+    "./experimental-benchmark/accounting.js/test/**/*.*",
+    "./experimental-benchmark/accounting.js/node_modules/**/*.*"
   ],
 
   "target-root-directory": "./experimental-benchmark/array/",
@@ -208,8 +221,8 @@
   ],
   "analysis-exclude": [
     "./experimental-benchmark/array/**/*.test.js",
-    "./experimental-benchmark/array/test/*",
-    "./experimental-benchmark/array/node_modules/*"
+    "./experimental-benchmark/array/test/**/*.*",
+    "./experimental-benchmark/array/node_modules/**/*.*"
   ],
 
   "target-root-directory": "./experimental-benchmark/arraygeous",
@@ -245,8 +258,8 @@
   ],
   "analysis-exclude": [
     "./experimental-benchmark/arraygeous/**/*.test.js",
-    "./experimental-benchmark/arraygeous/test/*",
-    "./experimental-benchmark/arraygeous/node_modules/*"
+    "./experimental-benchmark/arraygeous/test/**/*.*",
+    "./experimental-benchmark/arraygeous/node_modules/**/*.*"
   ],
 
   // Not suitable for benchmark (ESM module)
@@ -259,8 +272,8 @@
   ],
   "analysis-exclude": [
     "./experimental-benchmark/camelcase/**/*.test.js",
-    "./experimental-benchmark/camelcase/test/*",
-    "./experimental-benchmark/camelcase/node_modules/*"
+    "./experimental-benchmark/camelcase/test/**/*.*",
+    "./experimental-benchmark/camelcase/node_modules/**/*.*"
   ],
 
   "target-root-directory": "./experimental-benchmark/Case",
@@ -272,8 +285,8 @@
   ],
   "analysis-exclude": [
     "./experimental-benchmark/Case/**/*.test.js",
-    "./experimental-benchmark/Case/test/*",
-    "./experimental-benchmark/Case/node_modules/*"
+    "./experimental-benchmark/Case/test/**/*.*",
+    "./experimental-benchmark/Case/node_modules/**/*.*"
   ],
 
   // Uses some kind of half type script import syntax
@@ -289,8 +302,8 @@
   ],
   "analysis-exclude": [
     "./experimental-benchmark/react/**/*.test.js",
-    "./experimental-benchmark/react/test/*",
-    "./experimental-benchmark/react/node_modules/*"
+    "./experimental-benchmark/react/test/**/*.*",
+    "./experimental-benchmark/react/node_modules/**/*.*"
   ],
 
   // Frontend code
@@ -310,8 +323,8 @@
   ],
   "analysis-exclude": [
     "./experimental-benchmark/react/**/*.test.js",
-    "./experimental-benchmark/react/test/*",
-    "./experimental-benchmark/react/node_modules/*"
+    "./experimental-benchmark/react/test/**/*.*",
+    "./experimental-benchmark/react/node_modules/**/*.*"
   ]
 
   // cannot install dependencies
