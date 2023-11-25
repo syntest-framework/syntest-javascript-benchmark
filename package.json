@@ -21,9 +21,8 @@
     "url": "git+https://github.com/syntest-framework/syntest-javascript-benchmark.git"
   },
   "scripts": {
-    "local:install": "npm i && ./scripts/link.sh",
-    "posti": "npm run postinstall",
-    "postinstall": "./scripts/install.sh"
+    "local:install": "npm i && ./scripts/link.sh && npm run sub:install",
+    "sub:install": "./scripts/install.sh"
   },
   "dependencies": {
     "@syntest/cli": "^0.2.1",
