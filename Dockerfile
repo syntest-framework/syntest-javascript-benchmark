@@ -2,7 +2,7 @@ FROM node:lts
 
 # set environment variables for run time
 ENV target_root_directory=
-ENV include=
+ENV target_include=
 ENV preset=
 ENV time=
 

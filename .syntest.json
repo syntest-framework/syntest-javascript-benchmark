@@ -1,15 +1,15 @@
 {
-  "target-root-directory": "./benchmark/commanderjs",
+  "target-root-directory": "./benchmark/javascript-algorithms",
   "target-include": [
-    "./benchmark/commanderjs/lib/suggestSimilar.js"
+    "./benchmark/javascript-algorithms/src/algorithms/cryptography/hill-cipher/hillCipher.js"
   ],
   "analysis-include": [
-    "./benchmark/commanderjs/**/*.js"
+    "./benchmark/javascript-algorithms/**/*.js"
   ],
   "analysis-exclude": [
-    "./benchmark/commanderjs/**/*.test.js",
-    "./benchmark/commanderjs/test/**/*.*",
-    "./benchmark/commanderjs/node_modules/**/*.*"
+    "./**/*.test.js",
+    "./**/test/**/*.*",
+    "./**/node_modules/**/*.*"
   ],
   "crossover": "javascript-tree",
   "sampler": "javascript-random",
