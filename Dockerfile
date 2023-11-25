@@ -12,12 +12,12 @@ WORKDIR /app/
 RUN git clone https://github.com/syntest-framework/syntest-framework.git
 WORKDIR /app/syntest-framework
 RUN git fetch
-RUN git checkout experiment-javascript
+RUN git checkout implement-decorators
 WORKDIR /app/
 RUN git clone https://github.com/syntest-framework/syntest-javascript.git
 WORKDIR /app/syntest-javascript
 RUN git fetch
-RUN git checkout improve-type-inference-model
+RUN git checkout feat-implement-decorators
 WORKDIR /app/
 RUN git clone https://github.com/syntest-framework/syntest-javascript-benchmark.git
 
@@ -39,7 +39,7 @@ RUN npm install
 
 # Install benchmark dependencies
 WORKDIR /app/syntest-javascript-benchmark/benchmark/express
-RUN npm install
+RUN npm run local:install
 
 WORKDIR /app/syntest-javascript-benchmark
 
