@@ -32,14 +32,14 @@ cd syntest
 
 2. Clone all projects (i.e., `core`, `javascript`, and `benchmark`) in the same directory:
 ```bash
-git clone git@github.com:syntest-framework/syntest-core.git
+git clone git@github.com:syntest-framework/syntest-framework.git
 git clone git@github.com:syntest-framework/syntest-javascript.git
 git clone git@github.com:syntest-framework/syntest-javascript-benchmark.git
 ```
 
 3. Move into the `core` project, install all the dependencies, and build the project to compile all the TypeScript code:
 ```bash
-cd syntest-core
+cd syntest-framework
 npm install
 npm run build
 ```

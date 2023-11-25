@@ -27,6 +27,18 @@
     "./benchmark/commanderjs/node_modules/**/*.*"
   ],
 
+  "target-root-directory": "./benchmark/numbers.js",
+  "target-include": [
+    "./benchmark/numbers.js/lib/numbers/basic.js"
+  ],
+  "analysis-include": [
+    "./benchmark/numbers.js/lib/**/*.js"
+  ],
+  "analysis-exclude": [
+    "./benchmark/numbers.js/**/*.test.js",
+    "./benchmark/numbers.js/test/**/*.*",
+    "./benchmark/numbers.js/node_modules/**/*.*"
+  ],
 
   "target-root-directory": "./benchmark/express",
   "target-include": [

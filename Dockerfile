@@ -9,8 +9,8 @@ ENV time=
 # clone the repos
 WORKDIR /app/
 # Replace by the fork
-RUN git clone https://github.com/syntest-framework/syntest-core.git
-WORKDIR /app/syntest-core
+RUN git clone https://github.com/syntest-framework/syntest-framework.git
+WORKDIR /app/syntest-framework
 RUN git fetch
 RUN git checkout experiment-javascript
 WORKDIR /app/
@@ -22,7 +22,7 @@ WORKDIR /app/
 RUN git clone https://github.com/syntest-framework/syntest-javascript-benchmark.git
 
 # Install and build core
-WORKDIR /app/syntest-core
+WORKDIR /app/syntest-framework
 RUN npm install
 RUN npm run build
 

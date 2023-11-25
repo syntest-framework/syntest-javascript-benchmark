@@ -28,9 +28,10 @@
   "dependencies": {
     "@syntest/cli": "^0.2.1",
     "@syntest/javascript": "^0.1.0",
-    "@syntest/plugin-core-metric-middleware-file-writer": "^0.1.1",
-    "@syntest/plugin-core-metric-middleware-statistics": "^0.1.1",
-    "@syntest/plugin-core-search-algorithm-experimental": "^0.1.1",
+    "@syntest/plugin-javascript-event-listener-state-storage": "*",
+    "@syntest/plugin-event-listener-state-storage": "../syntest-framework/plugins/plugin-event-listener-state-storage",
+    "@syntest/plugin-metric-middleware-file-writer": "../syntest-framework/plugins/plugin-metric-middleware-file-writer",
+    "@syntest/plugin-metric-middleware-statistics": "../syntest-framework/plugins/plugin-metric-middleware-statistics",
     "chai": "4.3.6",
     "chai-as-promised": "7.1.1",
     "esm": "^3.2.25"

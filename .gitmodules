@@ -7,3 +7,6 @@
 [submodule "benchmark/numbers.js"]
 	path = benchmark/numbers.js
 	url = https://github.com/numbers/numbers.js.git
+[submodule "benchmark/decimal.js"]
+	path = benchmark/decimal.js
+	url = https://github.com/MikeMcl/decimal.js.git

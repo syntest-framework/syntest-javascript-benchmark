@@ -1,5 +1,5 @@
 # this file is used for local development
-# it links the syntest-core libraries to the benchmark libraries
+# it links the syntest-framework libraries to the benchmark libraries
 # it links the syntest-javascript libraries to the benchmark libraries
 
 rm -rf node_modules/@syntest/*
@@ -7,28 +7,28 @@ rm -rf node_modules/@syntest/*
 cd node_modules/@syntest
 
 # core libraries
-ln -s ../../../syntest-core/libraries/analysis analysis
-ln -s ../../../syntest-core/libraries/cfg cfg
-ln -s ../../../syntest-core/libraries/cli-graphics cli-graphics
-ln -s ../../../syntest-core/libraries/logging logging
-ln -s ../../../syntest-core/libraries/metric metric
-ln -s ../../../syntest-core/libraries/module module
-ln -s ../../../syntest-core/libraries/search search
-ln -s ../../../syntest-core/libraries/storage storage
-ln -s ../../../syntest-core/libraries/prng prng
+ln -s ../../../syntest-framework/libraries/analysis analysis
+ln -s ../../../syntest-framework/libraries/cfg cfg
+ln -s ../../../syntest-framework/libraries/cli-graphics cli-graphics
+ln -s ../../../syntest-framework/libraries/logging logging
+ln -s ../../../syntest-framework/libraries/metric metric
+ln -s ../../../syntest-framework/libraries/module module
+ln -s ../../../syntest-framework/libraries/search search
+ln -s ../../../syntest-framework/libraries/storage storage
+ln -s ../../../syntest-framework/libraries/prng prng
 
 # core plugins
-ln -s ../../../syntest-core/plugins/plugin-core-event-listener-graphing plugin-core-event-listener-graphing
-ln -s ../../../syntest-core/plugins/plugin-core-event-listener-state-storage plugin-core-event-listener-state-storage
-ln -s ../../../syntest-core/plugins/plugin-core-event-listener-websocket plugin-core-event-listener-websocket
-ln -s ../../../syntest-core/plugins/plugin-core-metric-middleware-file-writer plugin-core-metric-middleware-file-writer
-ln -s ../../../syntest-core/plugins/plugin-core-metric-middleware-statistics plugin-core-metric-middleware-statistics
-ln -s ../../../syntest-core/plugins/plugin-core-search-algorithm-experimental plugin-core-search-algorithm-experimental
+ln -s ../../../syntest-framework/plugins/plugin-event-listener-graphing plugin-event-listener-graphing
+ln -s ../../../syntest-framework/plugins/plugin-event-listener-state-storage plugin-event-listener-state-storage
+ln -s ../../../syntest-framework/plugins/plugin-event-listener-websocket plugin-event-listener-websocket
+ln -s ../../../syntest-framework/plugins/plugin-metric-middleware-file-writer plugin-metric-middleware-file-writer
+ln -s ../../../syntest-framework/plugins/plugin-metric-middleware-statistics plugin-metric-middleware-statistics
+ln -s ../../../syntest-framework/plugins/plugin-search-algorithm-experimental plugin-search-algorithm-experimental
 
 # core tools
-ln -s ../../../syntest-core/tools/cli cli
-ln -s ../../../syntest-core/tools/base-language base-language
-ln -s ../../../syntest-core/tools/init init
+ln -s ../../../syntest-framework/tools/cli cli
+ln -s ../../../syntest-framework/tools/base-language base-language
+ln -s ../../../syntest-framework/tools/init init
 
 # javascript libraries
 ln -s ../../../syntest-javascript/libraries/analysis-javascript analysis-javascript
@@ -41,3 +41,5 @@ ln -s ../../../syntest-javascript/plugins/plugin-javascript-event-listener-state
 
 # javascript tools
 ln -s ../../../syntest-javascript/tools/javascript javascript
+
+chmod +x ../.bin/syntest

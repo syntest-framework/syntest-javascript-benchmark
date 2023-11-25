@@ -1,17 +1,15 @@
 {
-  
-  
-  "target-root-directory": "./benchmark/axios",
+  "target-root-directory": "./benchmark/commanderjs",
   "target-include": [
-    "./benchmark/axios/lib/adapters/http.js"
+    "./benchmark/commanderjs/lib/suggestSimilar.js"
   ],
   "analysis-include": [
-    "./benchmark/axios/lib/**/*.js"
+    "./benchmark/commanderjs/**/*.js"
   ],
   "analysis-exclude": [
-    "./benchmark/axios/**/*.test.js",
-    "./benchmark/axios/test/**/*.*",
-    "./benchmark/axios/node_modules/**/*.*"
+    "./benchmark/commanderjs/**/*.test.js",
+    "./benchmark/commanderjs/test/**/*.*",
+    "./benchmark/commanderjs/node_modules/**/*.*"
   ],
 
   "crossover": "javascript-tree",
@@ -21,11 +19,12 @@
   "preset": "DynaMOSA",
   "modules": [
     "@syntest/javascript",
-    "@syntest/plugin-core-metric-middleware-file-writer",
-    "@syntest/plugin-core-metric-middleware-statistics",
-    "@syntest/plugin-core-search-algorithm-experimental"
+    "@syntest/plugin-event-listener-state-storage",
+    "@syntest/plugin-metric-middleware-file-writer",
+    "@syntest/plugin-metric-middleware-statistics",
+    "@syntest/plugin-javascript-event-listener-state-storage"
   ],
-  "console-log-level": "info",
+  "console-log-level": "warn",
   "file-log-level": [
     "info",
     "warn",
@@ -34,5 +33,5 @@
   ],
   "metric-middleware-pipeline": ["metric-middleware-statistics", "metric-middleware-file-writer"],
   "output-metrics": ["*"],
-  "total-time": 10
+  "total-time": 30
 }
