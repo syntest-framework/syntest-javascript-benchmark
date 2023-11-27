@@ -179,8 +179,8 @@ index = 1
 for iteration in range(iterations):
     for preset in presets:
         for project in projects.keys():
-            files = projects[project].files
-            analysis = projects[project].analysis
+            files = projects[project]['files']
+            analysis = projects[project]['analysis']
             for filepath in files:
                 name = "syntest-{}-{}".format(config, index)
                 configurations.append((name, iteration, preset, project, analysis, filepath))
