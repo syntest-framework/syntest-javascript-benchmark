@@ -168,7 +168,7 @@ for iteration in range(iterations):
 
 def call_script(args):
     (name, iteration, preset, project, filepath) = args
-    command = "docker run -it --name {} -e target_root_directory={} -e target_include={} -e analysis_include={}/**/*.js -e preset={} -e time=180 syntest-brp-2023-{}".format(name, project, filepath, project, preset, config)
+    command = "docker run -it --name {} -e target_root_directory={} -e target_include={} -e analysis_include='{}/**/*.js' -e preset={} -e time=180 syntest-brp-2023-{}".format(name, project, filepath, project, preset, config)
     print("Starting command with configuration: {} {} {} {} {}".format(name, iteration, preset, project, filepath))
     result = subprocess.call(command, shell=True)
     print("Completed command with configuration: {} {} {} {} {}".format(name, iteration, preset, project, filepath))
