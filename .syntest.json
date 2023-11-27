@@ -1,12 +1,13 @@
 {
   "target-root-directory": "./benchmark/javascript-algorithms",
   "target-include": [
-    "./benchmark/javascript-algorithms/src/algorithms/cryptography/hill-cipher/hillCipher.js"
+    "./benchmark/javascript-algorithms/src/algorithms/graph/floyd-warshall/floydWarshall.js"
   ],
   "analysis-include": [
     "./benchmark/javascript-algorithms/**/*.js"
   ],
   "analysis-exclude": [
+    "./**/test.js",
     "./**/*.test.js",
     "./**/test/**/*.*",
     "./**/node_modules/**/*.*"

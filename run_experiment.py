@@ -9,13 +9,13 @@ iterations = int(sys.argv[2])
 parallel = int(sys.argv[3])
 
 projects = {
-    "./benchmark/commanderjs": [
+    "./benchmark/commanderjs/lib": [
         "./benchmark/commanderjs/lib/argument.js",
         "./benchmark/commanderjs/lib/help.js",
         "./benchmark/commanderjs/lib/option.js",
         "./benchmark/commanderjs/lib/suggestSimilar.js"
         ],
-    "./benchmark/express": [
+    "./benchmark/express/lib": [
         "./benchmark/express/lib/application.js",
         "./benchmark/express/lib/middleware/init.js",
         "./benchmark/express/lib/middleware/query.js",
@@ -26,7 +26,7 @@ projects = {
         "./benchmark/express/lib/utils.js",
         "./benchmark/express/lib/view.js"
         ],
-    "./benchmark/javascript-algorithms": [
+    "./benchmark/javascript-algorithms/src": [
         "./benchmark/javascript-algorithms/src/algorithms/cryptography/hill-cipher/hillCipher.js",
         "./benchmark/javascript-algorithms/src/algorithms/cryptography/rail-fence-cipher/railFenceCipher.js",
         "./benchmark/javascript-algorithms/src/algorithms/graph/articulation-points/articulationPoints.js",
@@ -107,7 +107,7 @@ projects = {
         "./benchmark/artificial/performOperationProblem.js",
         "./benchmark/artificial/triangleProblem.js",
         ],
-    "./benchmark/moment": [
+    "./benchmark/moment/src": [
         "./benchmark/moment/src/lib/moment/add-subtract.js",
         "./benchmark/moment/src/lib/moment/calendar.js",
         "./benchmark/moment/src/lib/create/check-overflow.js",
