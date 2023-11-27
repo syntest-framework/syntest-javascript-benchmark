@@ -1,10 +1,10 @@
 {
-  "target-root-directory": "./benchmark/javascript-algorithms",
+  "target-root-directory": "./benchmark/express",
   "target-include": [
-    "./benchmark/javascript-algorithms/src/algorithms/graph/floyd-warshall/floydWarshall.js"
-  ],
+    "./benchmark/express/lib/response.js"
+    ],
   "analysis-include": [
-    "./benchmark/javascript-algorithms/**/*.js"
+    "./benchmark/express/lib/**/*.js"
   ],
   "analysis-exclude": [
     "./**/test.js",
