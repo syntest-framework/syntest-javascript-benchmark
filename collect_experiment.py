@@ -6,7 +6,7 @@ config = sys.argv[1]
 iterations = int(sys.argv[2])
 configurations = int(sys.argv[3])
 
-runs = 108 * iterations * configurations
+runs = 109 * iterations * configurations
 
 os.mkdir(config)
 
