@@ -146,6 +146,12 @@ projects = {
             "./benchmark/moment/src/lib/moment/start-end-of.js",
             "./benchmark/moment/src/lib/create/valid.js"
         ]
+    },
+    "./benchmark/numbers.js": {
+        "analysis": "./benchmark/numbers.js/lib/**/*.js",
+        "files": [
+                "./benchmark/numbers.js/lib/numbers/basic.js"
+        ]
     }
 }
 
