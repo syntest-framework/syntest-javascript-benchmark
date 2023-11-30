@@ -1,10 +1,11 @@
 {
-  "target-root-directory": "./benchmark/express",
+  "target-root-directory": "./benchmark/lodash",
   "target-include": [
-    "./benchmark/express/lib/response.js"
-    ],
+    "./benchmark/lodash/hasPath.js"
+  ],
+  "target-exclude": [],
   "analysis-include": [
-    "./benchmark/express/lib/**/*.js"
+    "./benchmark/lodash/**/*.js"
   ],
   "analysis-exclude": [
     "./**/test.js",
@@ -12,16 +13,32 @@
     "./**/test/**/*.*",
     "./**/node_modules/**/*.*"
   ],
+
+  "test-splitting": false,
+  "test-minimization": false,
+  "de-duplication": false,
+  "meta-comments": true,
+  "assertions": true,
+  "exception-objectives": true,
+
+  "incorporate-execution-information": true,
+  "type-inference-mode": "proportional",
+  "random-type-probability": 0.1,
+
   "crossover": "javascript-tree",
   "sampler": "javascript-random",
   "termination-triggers": [
   ],
+
   "preset": "DynaMOSA",
+  "total-time": 180,
+
   "modules": [
     "@syntest/javascript",
     "@syntest/plugin-metric-middleware-file-writer",
     "@syntest/plugin-metric-middleware-statistics"
   ],
+
   "console-log-level": "warn",
   "file-log-level": [
     "info",
@@ -29,7 +46,7 @@
     "error",
     "debug"
   ],
+
   "metric-middleware-pipeline": ["metric-middleware-statistics", "metric-middleware-file-writer"],
-  "output-metrics": ["*"],
-  "total-time": 180
+  "output-metrics": ["*"]
 }
