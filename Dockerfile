@@ -38,4 +38,4 @@ WORKDIR /app/syntest-javascript-benchmark
 COPY .syntest.json .
 RUN npm run local:install
 
-CMD timeout -k 25m 25m npx syntest javascript test --target-root-directory ${target_root_directory} --target-include ${target_include} --analysis-include ${analysis_include} --preset ${preset} --total-time ${time}
+CMD timeout -k 25m 25m npx syntest javascript test --target-root-directory "${target_root_directory}" --target-include "${target_include}" --analysis-include "${analysis_include}" --preset "${preset}" --total-time ${time}

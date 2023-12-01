@@ -157,8 +157,8 @@ projects = {
 
 presets = [
     "random",
-    "NSGAII",
-   "MOSA",
+    # "NSGAII",
+#    "MOSA",
     "DynaMOSA"
 #    "SPEAII",
 #    "MOSASPEAII",
@@ -194,7 +194,7 @@ for iteration in range(iterations):
 
 def call_script(args):
     (name, iteration, preset, project, analysis, filepath) = args
-    command = "docker run -it --name {} -e target_root_directory={} -e target_include={} -e analysis_include={} -e preset={} -e time=180 syntest-{}".format(name, project, filepath, analysis, preset, config)
+    command = "docker run -it --name {} -e target_root_directory='{}' -e target_include='{}' -e analysis_include='{}' -e preset='{}' -e time=180 syntest-{}".format(name, project, filepath, analysis, preset, config)
     print("Starting command with configuration: {} {} {} {} {}".format(name, iteration, preset, project, filepath))
     result = subprocess.call(command, shell=True)
     print("Completed command with configuration: {} {} {} {} {}".format(name, iteration, preset, project, filepath))
