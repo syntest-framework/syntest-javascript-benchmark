@@ -139,7 +139,7 @@ projects = {
             "./benchmark/moment/src/lib/create/from-string-and-format.js",
             "./benchmark/moment/src/lib/create/from-string.js",
             "./benchmark/moment/src/lib/moment/get-set.js",
-            "./benchmark/moment/src/lib/create/locale.js",
+            "./benchmark/moment/src/lib/create/local.js",
             "./benchmark/moment/src/lib/moment/min-max.js",
             "./benchmark/moment/src/lib/moment/now.js",
             "./benchmark/moment/src/lib/create/parsing-flags.js",
